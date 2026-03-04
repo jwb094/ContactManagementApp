@@ -14,33 +14,43 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
 
-            // $table->foreignId('user_id')
-            //     ->constrained()
-            //     ->cascadeOnDelete();
-            $table->foreign('author_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+            // Creator / Owner
+            $table->foreignId('creator_id')
+                ->constrained('users')
+                ->cascadeOnDelete();
 
+            // Basic Info
+            $table->string('title')->nullable(); // Mr, Mrs, Dr, etc.
             $table->string('first_name');
-            $table->string('last_name')->nullable();
+            $table->string('last_name');
 
             $table->string('email')->nullable()->index();
-            $table->string('phone', 30)->nullable()->index();
+            $table->string('phone', 20)->nullable()->index(); // UK numbers up to 15 digits (E.164)
 
-            $table->date('birthday')->nullable();
+            // Professional Info
+            $table->string('job_title')->nullable();
+            $table->string('company_name')->nullable()->index();
 
-            $table->string('address')->nullable();
-            $table->string('city')->nullable()->index();
-            $table->string('state')->nullable();
-            $table->string('country')->nullable()->index();
+            // Social Media Handle 
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable()->index();
+            $table->string('linkedin')->nullable()->index();
 
-            $table->boolean('is_favorite')->default(false);
+            // UK Address Structure
+            $table->string('address_line_1')->nullable();
+            $table->string('address_line_2')->nullable();
+            $table->string('town_city')->nullable()->index();
+            $table->string('county')->nullable(); // UK uses county not state
+            $table->string('posstcode', 8)->nullable()->index(); // UK postcode max 8 incl space
+            $table->string('country')->default('United Kingdom');
 
+            // Personal Info
+            $table->date('date_of_birth')->nullable();
+            $table->boolean('is_favourite')->default(false);
+
+            // CRM Fields
             $table->timestamp('last_contacted_at')->nullable();
-
             $table->string('profile_photo')->nullable();
-
             $table->text('notes')->nullable();
 
             $table->timestamps();
