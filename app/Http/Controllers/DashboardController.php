@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
+    protected  User $User;
+
+    public function __construct(User $userModel)
+    {
+        $this->User = $userModel;
+    }
     /**
      * Display a listing of the resource.
      */
