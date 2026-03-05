@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Tag;
 
 class DashboardController extends Controller
 {
     protected  User $User;
 
-    public function __construct(User $userModel)
+    protected Tag $Tag;
+
+    public function __construct(User $userModel, Tag $tagModel)
     {
         $this->User = $userModel;
+        $this->Tag = $tagModel;
     }
     /**
      * Display a listing of the resource.
