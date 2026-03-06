@@ -12,13 +12,15 @@
 
     <!-- Styles / Scripts -->
     {{-- @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot'))) --}}
+    <link rel="stylesheet" href=" {{ URL::asset('css/reset.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
     {{-- @else --}}
 
     {{-- @endif --}}
 </head>
-<body class="d-flex flex-col align-items-center justify-content-center vh-100 bg-body-tertiary">
+
+<body class="{{ request()->is(['/', 'register'])  ? 'd-flex flex-col align-items-center justify-content-center vh-100 bg-body-tertiary' : 'd-flex flex-col w-100 vh-100 bg-body-tertiary' }}">
     @include('include.header')
     <main class="container-fluid ">
         @yield('content')
