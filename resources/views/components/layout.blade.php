@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Contact</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -13,6 +13,8 @@
     <!-- Styles / Scripts -->
     {{-- @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot'))) --}}
     <link rel="stylesheet" href=" {{ URL::asset('css/reset.css') }}">
+    <link rel="stylesheet" href=" {{ URL::asset('css/layout.css') }}">
+    <link rel="stylesheet" href=" {{ URL::asset('css/sidebar.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
     {{-- @else --}}
@@ -26,6 +28,7 @@
         @yield('content')
     </main>
     @include('include.footer')
+    @stack('scripts')
+
 </body>
 </html>
-@stack('scripts')
