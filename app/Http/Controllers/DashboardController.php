@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Tag;
+//use App\Models\Tag;
 
 class DashboardController extends Controller
 {
     protected  User $User;
 
-    protected Tag $Tag;
+    //protected Tag $Tag;
 
-    public function __construct(User $userModel, Tag $tagModel)
+    public function __construct(User $userModel, /*$tagModel*/)
     {
         $this->User = $userModel;
-        $this->Tag = $tagModel;
+        // $this->Tag = $tagModel;
     }
     /**
      * Display a listing of the resource.
@@ -23,6 +23,7 @@ class DashboardController extends Controller
     public function index()
     {
         //
+        return view('contacts.dashboard');
     }
 
     /**

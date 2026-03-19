@@ -11,7 +11,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        return view('tags.home');
     }
 
     /**
@@ -19,7 +19,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('tags.new');
     }
 
     /**
@@ -38,16 +38,17 @@ class TagController extends Controller
         //
     }
 
+
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing a Tag record resource.
      */
     public function edit(string $id)
     {
-        //
+        return view('tags.edit');
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified Tag record in storage.
      */
     public function update(Request $request, string $id)
     {

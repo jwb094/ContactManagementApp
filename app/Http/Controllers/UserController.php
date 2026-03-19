@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
@@ -20,7 +21,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return view('home');
     }
 
     /**
@@ -31,13 +32,7 @@ class UserController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+
 
     /**
      * Display the specified resource.
@@ -121,10 +116,9 @@ class UserController extends Controller
         ]);
 
         $data['password'] = Hash::make($request->password);
-        $data['role'] = 'applicant';
 
 
-        $newUser = $this->JobListingsUser::create($data);
+        $newUser = $this->User::create($data);
 
         if (!$newUser->id) {
             return  redirect('/user/register')->wih('status', false)->with('message', "Registration failed, try again please");;

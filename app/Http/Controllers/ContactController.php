@@ -11,8 +11,20 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        return view('contacts.book');
     }
+
+    public function new_contact()
+    {
+        return view('contacts.new_contact');
+    }
+
+    public function edit_contact()
+    {
+        return view('contacts.edit_contact');
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
