@@ -23,6 +23,11 @@
                             <div class="card-body">
                                 <h5 class="card-title">Import</h5>
                                 <i class="bi bi-upload"></i>
+                                <form action="">
+                                    <input type="file" name="" id="">
+
+                                    <button type="submit" class="">Import</button>
+                                </form>
 
                             </div>
                         </div>
@@ -30,8 +35,10 @@
                     <div class="col-md-6">
                         <div class="card shadow-sm">
                             <div class="card-body">
-                                <h5 class="card-title">Export</h5>
-                                <i class="bi bi-download"></i>
+                                <a href="/admin/csv/contact_export">
+                                    <h5 class="card-title">Export</h5>
+                                    <i class="bi bi-download"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
