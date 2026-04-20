@@ -12,23 +12,24 @@
 
     <!-- Styles / Scripts -->
     {{-- @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot'))) --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href=" {{ URL::asset('css/reset.css') }}">
     <link rel="stylesheet" href=" {{ URL::asset('css/layout.css') }}">
+    <link rel="stylesheet" href=" {{ URL::asset('css/mobile_nav.css') }}">
     <link rel="stylesheet" href=" {{ URL::asset('css/sidebar.css') }}">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
     {{-- @else --}}
 
     {{-- @endif --}}
 </head>
 
-<body class="{{ request()->is(['/', 'register'])  ? 'd-flex flex-col align-items-center justify-content-center vh-100 bg-body-tertiary' : 'd-flex flex-col w-100 vh-100 bg-body-tertiary' }}">
+<body class="{{ request()->is(['/', 'register'])  ? 'd-flex flex-column align-items-center justify-content-center vh-100 bg-body-tertiary' : 'd-flex flex-column w-100 vh-100 bg-body-tertiary' }}">
     @include('include.header')
     <main class="container-fluid ">
         @yield('content')
     </main>
     @include('include.footer')
     @stack('scripts')
-
+    <script src="{{ URL::asset('js/mobile_nav.js') }}"></script>
 </body>
 </html>

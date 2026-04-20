@@ -56,5 +56,5 @@ Route::put('/admin/tags/update/{id}', [TagController::class, 'update'])->name('u
 // });
 Route::get('/admin/csv', [CSVController::class, 'index'])->name('csv_index');
 Route::get('/admin/csv/contact_export', [CSVController::class, 'contact_export'])->name('csv_index');
-Route::post('/admin/csv_import', [CSVController::class, 'import'])->name('csv_import');
-Route::post('/admin/csc_export', [CSVController::class, 'export'])->name('csv_export');
+Route::post('/admin/csv/contact_import', [CSVController::class, 'import'])->name('csv_import');
+Route::post('/admin/csv_export', [CSVController::class, 'export'])->name('csv_export');

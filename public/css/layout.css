@@ -55,3 +55,12 @@ main {
         opacity: 0;
     }
 }
+
+/* #navbarNavMobile.collapse.show {
+    display: block !important;
+
+} */
+
+#navbarNavMobile.collapse:not(.show) {
+    display: none;
+}
