@@ -4,7 +4,7 @@
     @endpush
     @section('title','home')
     @section('content')
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <div class="container-fluid">
         <div class="row">
 
@@ -38,7 +38,9 @@
 
             <!-- Main content -->
             <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-
+                <div class="col-md-12">
+                    <h1 class="">Edit X Contact</h1>
+                </div>
                 <section id="form-container" class="w-96 md:w-1/2 lg:w-1/2 xl:w-1/2">
 
                     <div id="steps-bar">

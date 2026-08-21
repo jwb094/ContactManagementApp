@@ -39,12 +39,12 @@
             <!-- Main content -->
             <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-                <section class="form-signin w-100 m-auto">
+                <section class="form-signin w-50 m-auto">
                     <form action="/new/tag" method="POST">
                         <h1 class="h3 mb-3 fw-normal text-center"> New Tag</h1>
                         <div class="form-floating">
-                            <input type="text" name="name" class="form-control" id="tagNAme" placeholder="Friends">
-                            <label for="tagNAme">Name</label> </div>
+                            <input type="text" name="name" class="form-control" id="tagName" placeholder="Friends">
+                            <label for="tagName">Name</label> </div>
                         <button class="btn btn-primary w-100 py-2 mt-2" type="submit">Sign in</button>
 
                     </form>

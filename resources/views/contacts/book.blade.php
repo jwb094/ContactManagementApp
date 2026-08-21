@@ -4,6 +4,7 @@
     @endpush
     @section('title','Contact Book')
     @section('content')
+
     <h1 class="h3 mt-3 fw-normal text-center"> My Contacts</h1>
     {{--<div class="row">
         <div class="d-flex full-height">
@@ -125,18 +126,21 @@
             <section class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
                 <div class="row">
+                    <div class="my-4">
+                        <a class="col-sm-2 btn btn-primary" href="{{ route('new_contact') }}">New Contact</a>
+                    </div>
                     <form action="/register" method="POST">
 
                         <div class="row">
                             <div class="col-2 mb-3">
-                                <input type="text" class="form-control" name="first_name" id="" placeholder="first Name">
+                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first Name">
                             </div>
 
                             <div class="col-2 mb-3">
-                                <input type="text" class="form-control" name="lasst_name" id="" placeholder="Last Name">
+                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name">
                             </div>
                             <div class="col-2 mb-3">
-                                <input type="text" class="form-control" name="lasst_name" id="" placeholder="email">
+                                <input type="text" class="form-control" name="email" id="email" placeholder="email">
                             </div>
                             <div class="col-1  | form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -172,7 +176,8 @@
                                 <th scope="col">#</th>
                                 <th scope="col">First</th>
                                 <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">Mobile</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -180,6 +185,7 @@
                                 <th scope="row">1</th>
                                 <td>Mark</td>
                                 <td>Otto</td>
+                                <td>@mdo</td>
                                 <td>@mdo</td>
                             </tr>
                             <tr>
@@ -191,7 +197,17 @@
                             <tr>
                                 <th scope="row">3</th>
                                 <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
+                                <td></td>
+                                <td>
+                                    <a class="btn btn-secondary" href=""> Edit</a>
+                                    {{-- <a class="btn btn-danger" href="href="{{ route('delete_contact') }}""> Delete</a> --}}
+
+                                    {{-- <form action="{{ route('delete_contact') }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Contact?')">Delete</button>
+                                    </form> --}}
+                                </td>
                             </tr>
                         </tbody>
                     </table>

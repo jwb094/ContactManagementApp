@@ -11,18 +11,17 @@
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
     <!-- Styles / Scripts -->
- @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot'))) 
+    {{-- @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot'))) --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href=" {{ URL::asset('css/reset.css') }}">
     <link rel="stylesheet" href=" {{ URL::asset('css/layout.css') }}">
     <link rel="stylesheet" href=" {{ URL::asset('css/mobile_nav.css') }}">
-        <link rel="stylesheet" href=" {{ URL::asset('css/mobile_nav_bootstrap_custom.css') }}">
     <link rel="stylesheet" href=" {{ URL::asset('css/sidebar.css') }}">
     @stack('styles')
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
-     @else 
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    {{-- @else --}}
 
-     @endif 
+    {{-- @endif --}}
 </head>
 
 <body class="{{ request()->is(['/', 'register'])  ? 'd-flex flex-column align-items-center justify-content-center vh-100 bg-body-tertiary' : 'd-flex flex-column w-100 vh-100 bg-body-tertiary' }}">

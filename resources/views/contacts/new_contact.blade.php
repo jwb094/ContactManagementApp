@@ -38,8 +38,13 @@
 
             <!-- Main content -->
             <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="col-md-12">
+                        <h1 class="">New Contact</h1>
+                    </div>
+                <section id="form-container" class="">
+                    
+            
 
-                <section id="form-container" class="w-96 md:w-1/2 lg:w-1/2 xl:w-1/2">
 
                     <div id="steps-bar">
                         <div class="step-indicator active">1</div>

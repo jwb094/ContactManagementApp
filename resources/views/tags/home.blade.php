@@ -4,7 +4,7 @@
     @endpush
     @section('title','Contact Book')
     @section('content')
-    <h1 class="h3 mt-3 fw-normal text-center"> My Contacts</h1>
+    <h1 class="h3 mt-3 fw-normal text-center"> My Tags</h1>
 
     <div class="container-fluid">
         <div class="row">
@@ -47,7 +47,7 @@
                                 <input type="text" class="form-control" name="first_name" id="" placeholder="first Name">
                             </div>
 
-                            <div class="col-2 mb-3">
+                            {{-- <div class="col-2 mb-3">
                                 <input type="text" class="form-control" name="lasst_name" id="" placeholder="Last Name">
                             </div>
                             <div class="col-2 mb-3">
@@ -76,7 +76,7 @@
                                 <label class="form-check-label" for="flexCheckChecked">
                                     Favourite
                                 </label>
-                            </div>
+                            </div> --}}
                         </div>
 
                     </form>
@@ -87,7 +87,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Actions</th>
-                                <th scope="col">Creted</th>
+                                <th scope="col">Created</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -31,7 +31,7 @@
         </div>
     </div>
 </header> --}}
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow d-none d-sm-flex">
+{{-- <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow d-none d-sm-flex">
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
         MyContacts
     </a>
@@ -40,7 +40,7 @@
 
 
 </header>
-<nav class="navbar navbar-dark bg-dark fixed-top d-lg-none shadow-sm">
+<nav class="navbar navbar-dark bg-dark fixed-top d-sm-none d-md-none  d-lg-none shadow-sm">
     <div class="container-fluid">
         <div class="d-flex d-flex-row justify-content-between w-100">
 
@@ -57,16 +57,61 @@
             </buttton>
             <div class="c-site-nav position-fixed bg-dark">
                 <ul class="">
-                    <li class="text-light">item 1</li>
-                    <li class="text-light">item 2</li>
-                    <li class="text-light">item 3</li>
-                    <li class="text-light">item 4</li>
-                    <li class="text-light">item 5</li>
+                    <li class="text-light"><a href="{{ route('dashboard') }}">Home</a></li>
+<li class="text-light"><a href="{{ route('contacts_list') }}">Contacts</a></li>
+<li class="text-light"><a href="{{ route('tags_list') }}">Manage Tags</a></li>
+<li class="text-light"><a href="{{ route('contacts_list') }}">My Profile</a></li>
+<li class="text-light"><a href="{{ route('csv_index') }}">Export/Import</a></li>
+</ul>
+</div>
+</div>
+</div>
+</nav> --}}
+
+<nav class="navbar navbar-expand-lg bg-white border-bottom shadow-sm sticky-top">
+    <div class="container">
+
+        <!-- Brand -->
+        <a class="navbar-brand fw-bold" href="/">
+            MyApp
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation -->
+        <div class="collapse navbar-collapse d-flex justify-content-end" id="mainNavbar">
+
+
+
+            <!-- Authentication -->
+            <div class="navbar-actions d-flex  flex-column flex-lg-row gap-2">
+
+                <ul class="navbar-nav ms-auto me-4">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ auth()->user()->name ?? 'User' }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
+
             </div>
+
         </div>
     </div>
 </nav>
+
 <!-- Mobile Navbaråß -->
 {{--<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm d-block d-sm-none">
     <div class="container">
