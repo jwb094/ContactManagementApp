@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [UserController::class, 'index']);
 
-Route::get('/register', function () {
-    return view('register');
-});
+// Route::get('/register', function () {
+//     return view('register');
+// });
 
 // Route::get('/dashboard', function () {
 //     return view('contacts.dashboard');
@@ -23,26 +23,29 @@ Route::get('/register', function () {
 
 //User
 //Route::get('/user/signin', [UserController::class, 'signin'])->name('user-login-page');
-Route::post('/user/login', [UserController::class, 'login']);
-//Route::get('/user/register', [UserController::class, 'register'])->name('user-register-page');
+Route::post('/user/login', [UserController::class, 'login'])->name('user-login-page');
+Route::get('/register', [UserController::class, 'register'])->name('user-register-page');
 Route::post('/user/create', [UserController::class, 'store']);
 Route::get('/user/logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/admin/profile/{id}', [UserController::class, 'edit']);
-Route::put('/admin/update/profile/{id}', [UserController::class, 'update']);
+Route::get('/admin/profile/{id}', [UserController::class, 'edit'])->name('profile');
+Route::put('/admin/update/profile/{id}', [UserController::class, 'update'])->name('update_profile');
+Route::delete('/admin/delete/profile/{id}', [UserController::class, 'delete'])->name('delete_profile');
 
+//Profile
+//Route::get('/admin/profile', [UserController::class, 'profile'])->name('csv_index');
 
 //Contact 
 Route::get('/admin/contacts', [ContactController::class, 'index'])->name('contacts_list');
-Route::get('/admin/contact/new', [ContactController::class, 'new_contact']);
-Route::get('/admin/contact/edit/{id}', [ContactController::class, 'edit_contact']);
+Route::get('/admin/contact/new', [ContactController::class, 'new_contact'])->name('new_contact');
+Route::get('/admin/contact/edit/{id}', [ContactController::class, 'edit_contact'])->name('edit_contact');;
 Route::get('/admin/contact/update/{id}/documents', [ContactController::class, 'update']);
 Route::post('/admin/store/', [ContactController::class, 'store'])->name('user.store_documents');
 Route::put('/admin/update/{id}', [ContactController::class, 'update'])->name('user.store_documents');
 
 
 //Tags
-Route::get('/admin/tags', [TagController::class, 'index'])->name('contacts_list');
+Route::get('/admin/tags', [TagController::class, 'index'])->name('tags_list');
 Route::get('/admin/tags/new', [TagController::class, 'create']);
 Route::get('/admin/tags/edit/{id}', [TagController::class, 'edit']);
 Route::get('/admin/tags/update/{id}/documents', [TagController::class, 'update']);

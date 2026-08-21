@@ -47,7 +47,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('profile.edit');
     }
 
     /**
@@ -98,7 +98,8 @@ class UserController extends Controller
     }
     public function register()
     {
-        return view('user.register');
+        // return view('user.register');
+         return view('register');
     }
 
     /**

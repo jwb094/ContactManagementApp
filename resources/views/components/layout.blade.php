@@ -19,6 +19,7 @@
     <link rel="stylesheet" href=" {{ URL::asset('css/sidebar.css') }}">
     @stack('styles')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href=" {{ URL::asset('css/admin_layout.css') }}">
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
      @else 
 
@@ -26,12 +27,14 @@
 </head>
 
 <body class="{{ request()->is(['/', 'register'])  ? 'd-flex flex-column align-items-center justify-content-center vh-100 bg-body-tertiary' : 'd-flex flex-column w-100 vh-100 bg-body-tertiary' }}">
-    @include('include.header')
+    {{-- @include('include.header') --}}
+    @include('include.admin_panel_mobile')
     <main class="container-fluid ">
         @yield('content')
     </main>
     @include('include.footer')
     @stack('scripts')
     <script src="{{ URL::asset('js/mobile_nav.js') }}"></script>
+      <script src="{{ URL::asset('js/admin_nav.js') }}"></script>
 </body>
 </html>

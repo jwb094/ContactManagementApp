@@ -10,7 +10,7 @@
         .top {
             height: 5px;
             width: 30px;
-            background: #000;
+            background: #fff;
             border-radius: 50px;
             position: absolute;
             transition: 0.5s ease;
@@ -27,7 +27,7 @@
             top: 10px;
             height: 5px;
             width: 30px;
-            background: #000;
+            background: #fff;
             border-radius: 50px;
             position: absolute;
             transition: 0.3s ease;
@@ -42,7 +42,7 @@
             top: 20px;
             height: 5px;
             width: 30px;
-            background: #000;
+            background: #fff;
             border-radius: 50px;
             position: absolute;
             transition: 0.3s ease;
@@ -61,17 +61,19 @@
     transform: translateY(-200%);
     transition: all 1.5s ease-in-out;
     height: 0;
+    width: 100%;
     opacity: 0;
-    ;
+    left: 0;
+    z-index: -1;
 }
 
 .open-menu {
-    transform: translateY(35%);
+    transform: translateY(6%);
     width: 100%;
     background-color: aqua;
     z-index: 1;
     opacity: 1;
-    height: unset;
+    height: 100%;
     left: 0;
 }
 
