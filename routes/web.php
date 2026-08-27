@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [UserController::class, 'index']);
 
-// Route::get('/register', function () {
-//     return view('register');
-// });
+Route::get('/register', function () {
+    return view('register');
+});
 
 // Route::get('/dashboard', function () {
 //     return view('contacts.dashboard');
@@ -23,41 +23,46 @@ Route::get('/', [UserController::class, 'index']);
 
 //User
 //Route::get('/user/signin', [UserController::class, 'signin'])->name('user-login-page');
-Route::post('/user/login', [UserController::class, 'login'])->name('user-login-page');
-Route::get('/register', [UserController::class, 'register'])->name('user-register-page');
-Route::post('/user/create', [UserController::class, 'store']);
-Route::get('/user/logout', [UserController::class, 'logout'])->name('logout');
-Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/admin/profile/{id}', [UserController::class, 'edit'])->name('profile');
-Route::put('/admin/update/profile/{id}', [UserController::class, 'update'])->name('update_profile');
-Route::delete('/admin/delete/profile/{id}', [UserController::class, 'delete'])->name('delete_profile');
+Route::post('/user/login', [UserController::class, 'login'])->name('user.login');
+Route::get('/register', [UserController::class, 'register'])->name('user.register');
+Route::post('/user/create', [UserController::class, 'store'])->name('user.store');
+Route::get('/user/logout', [UserController::class, 'logout'])->name('admin.logout');
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin/profile/{id}', [UserController::class, 'edit'])->name('admin.profile');
+Route::put('/admin/profile/update/{id}', [UserController::class, 'update'])->name('admin.profile.update');
+Route::delete('/admin/profile/delete/{id}', [UserController::class, 'delete'])->name('admin.profile.delete');
 
-//Profile
-//Route::get('/admin/profile', [UserController::class, 'profile'])->name('csv_index');
-
-//Contact 
-Route::get('/admin/contacts', [ContactController::class, 'index'])->name('contacts_list');
-Route::get('/admin/contact/new', [ContactController::class, 'new_contact'])->name('new_contact');
-Route::get('/admin/contact/edit/{id}', [ContactController::class, 'edit_contact'])->name('edit_contact');;
-Route::get('/admin/contact/update/{id}/documents', [ContactController::class, 'update']);
-Route::post('/admin/store/', [ContactController::class, 'store'])->name('user.store_documents');
-Route::put('/admin/update/{id}', [ContactController::class, 'update'])->name('user.store_documents');
 
 
 //Tags
-Route::get('/admin/tags', [TagController::class, 'index'])->name('tags_list');
-Route::get('/admin/tags/new', [TagController::class, 'create']);
-Route::get('/admin/tags/edit/{id}', [TagController::class, 'edit']);
-Route::get('/admin/tags/update/{id}/documents', [TagController::class, 'update']);
-Route::post('/admin/tags/store/', [TagController::class, 'store'])->name('user.store_documents');
-Route::put('/admin/tags/update/{id}', [TagController::class, 'update'])->name('user.store_documents');
-
 
 //CSV
 // Route::get('/admin/csv', function () {
 //     return view('csv.csv');
 // });
-Route::get('/admin/csv', [CSVController::class, 'index'])->name('csv_index');
-Route::get('/admin/csv/contact_export', [CSVController::class, 'contact_export'])->name('csv_index');
-Route::post('/admin/csv/contact_import', [CSVController::class, 'import'])->name('csv_import');
-Route::post('/admin/csv_export', [CSVController::class, 'export'])->name('csv_export');
+
+
+Route::prefix('admin')->group(function () {
+    //Contact 
+    Route::get('/contacts', [ContactController::class, 'index'])->name('admin.contacts_list');
+    Route::get('/contact/new', [ContactController::class, 'new_contact'])->name('admin.contact.new');
+    Route::get('/contact/edit/{id}', [ContactController::class, 'edit_contact'])->name('edit_contact');;
+    Route::get('/contact/update/{id}/documents', [ContactController::class, 'update']);
+    Route::post('/store/', [ContactController::class, 'store'])->name('user.store_documents');
+    Route::put('/update/{id}', [ContactController::class, 'update'])->name('user.store_documents');
+
+
+    Route::get('/tags', [TagController::class, 'index'])->name('admin.tags');
+    Route::get('/tags/new', [TagController::class, 'create'])->name('admin.tags.new');
+    Route::get('/tags/edit/{id}', [TagController::class, 'edit'])->name('admin.tags.edit');
+    Route::get('/tags/update/{id}/documents', [TagController::class, 'update'])->name('admin.tags.update');
+    Route::post('/tags/store/', [TagController::class, 'store'])->name('user.store_documents')->name('admin.tags.store');
+    Route::put('/tags/update/{id}', [TagController::class, 'update'])->name('user.store_documents')->name('admin.tags_list.update');
+
+    //CSV
+    Route::get('/csv', [CSVController::class, 'index'])->name('admin.csv.index');
+    Route::get('/csv/contact_export', [CSVController::class, 'contact_export'])->name('admin.csv.index');
+    Route::post('/csv/contact_import', [CSVController::class, 'import'])->name('admin.csv.import');
+    Route::post('/csv_export', [CSVController::class, 'export'])->name('admin.csv.export');
+
+});
