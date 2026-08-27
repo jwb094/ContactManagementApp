@@ -1,3 +1,4 @@
+@if (!request()->is('/') && !request()->is('register'))
 
 <nav class="navbar navbar-dark bg-dark sticky-top mobile-navbar">
     <div class="container-fluid">
@@ -73,3 +74,4 @@
 
     </div>
 </nav>
+@endif

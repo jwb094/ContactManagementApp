@@ -24,34 +24,34 @@
 
     <nav class="nav flex-column">
 
-        <a href="#" class="nav-link active">
+        <a href={{ route('admin.dashboard') }} class="nav-link active">
             <span class="me-2">▣</span>
             Dashboard
         </a>
 
-        <a href="#" class="nav-link">
+        {{-- <a href="#" class="nav-link">
             <span class="me-2">👥</span>
             Users
+        </a> --}}
+
+        <a href={{ route('admin.contacts_list') }} class="nav-link">
+            <span class="me-2"><i class="bi bi-person-lines-fill"></i></span>
+            Contacts
         </a>
 
-        <a href="#" class="nav-link">
-            <span class="me-2">📄</span>
-            Posts
+        <a href={{ route('admin.tags') }} class="nav-link">
+            <span class="me-2"><i class="bi bi-bookmark"></i></span>
+            Tags
         </a>
 
-        <a href="#" class="nav-link">
-            <span class="me-2">💼</span>
-            Jobs
-        </a>
-
-        <a href="#" class="nav-link">
+        <a href={{ route('admin.profile',1) }}  class="nav-link">
             <span class="me-2">📦</span>
-            Products
+            My Profile
         </a>
 
-        <a href="#" class="nav-link">
-            <span class="me-2">⚙</span>
-            Settings
+        <a href={{ route('admin.csv.index') }} class="nav-link">
+            <span class="me-2"><i class="bi bi-file-earmark-fill"></i></span>
+            Export/Import
         </a>
 
     </nav>

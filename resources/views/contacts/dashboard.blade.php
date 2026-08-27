@@ -4,7 +4,6 @@
     @endpush
     @section('title','Dashboard')
     @section('content')
-    @section('content')
     <div class="container-fluid p-4">
 
         <!-- Page Header -->

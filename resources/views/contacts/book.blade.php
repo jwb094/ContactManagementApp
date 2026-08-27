@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin-layout>
     @push('styles')
     <link rel="stylesheet" href=" {{ URL::asset('css/contact.css') }}">
     @endpush
@@ -121,13 +121,13 @@
 
                 </div>
             </nav>--}}
-            @include('include.sidebar_menu')
+         
             <!-- Main content -->
             <section class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
                 <div class="row">
                     <div class="my-4">
-                        <a class="col-sm-2 btn btn-primary" href="{{ route('new_contact') }}">New Contact</a>
+                        <a class="col-sm-2 btn btn-primary" href="{{ route('admin.contact.new') }}">New Contact</a>
                     </div>
                     <form action="/register" method="POST">
 
@@ -218,4 +218,4 @@
         </div>
     </div>
     @endsection
-</x-layout>
+</x-admin-layout>

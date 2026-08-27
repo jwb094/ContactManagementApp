@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin-layout>
     @push('styles')
     <link rel="stylesheet" href=" {{ URL::asset('css/multi-step-form.css') }}">
     @endpush
@@ -151,4 +151,4 @@
     <script src="{{ URL::asset('js/multi-step-form.js') }}"></script>
     @endpush
     @endsection
-</x-layout>
+</x-admin-layout>
