@@ -1,20 +1,10 @@
-<x-layout>
+<x-admin-layout>
     @push('styles')
     <link rel="stylesheet" href=" {{ URL::asset('css/dashboard.css') }}">
     @endpush
     @section('title','Dashboard')
     @section('content')
-
-    {{-- <div class="container-fluid"> --}}
-        
-        <div class="row">
-            {{-- @include('include.sidebar_menu') --}}
-            @include('include.admin_panel')
-            <!-- Main content -->
-          
-
-            <main class="admin-main">
-
+    @section('content')
     <div class="container-fluid p-4">
 
         <!-- Page Header -->
@@ -273,9 +263,5 @@
         </div>
 
     </div>
-
-</main>
-        </div>
-    {{-- </div> --}}
     @endsection
-</x-layout>
+</x-admin-layout>
