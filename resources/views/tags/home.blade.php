@@ -1,4 +1,4 @@
-<x-admin-layout>
+@extends('layouts.admin-layout')
     @push('styles')
     <link rel="stylesheet" href=" {{ URL::asset('css/contact.css') }}">
     @endpush
@@ -83,4 +83,4 @@
         </div>
     </div>
     @endsection
-</x-admin-layout>
+

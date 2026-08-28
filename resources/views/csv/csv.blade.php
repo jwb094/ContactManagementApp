@@ -10,7 +10,6 @@
         <div class="row">
 
 
-            @include('include.sidebar_menu')
 
             <!-- Main content -->
             <section class="col-md-9 ms-sm-auto col-lg-10 px-md-4">

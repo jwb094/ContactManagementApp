@@ -1,4 +1,4 @@
-<x-admin-layout>
+@extends('layouts.admin-layout')
     @push('styles')
 
     @endpush

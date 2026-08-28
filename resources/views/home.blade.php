@@ -1,4 +1,5 @@
-<x-layout>
+{{-- <x-layout> --}}
+  @extends('layouts.admin-layout')
     @push('styles')
     <link rel="stylesheet" href=" {{ URL::asset('css/form.css') }}">
     @endpush
@@ -21,4 +22,4 @@
 
 
     @endsection
-</x-layout>
+{{-- </x-layout> --}}
