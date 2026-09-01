@@ -1,5 +1,4 @@
-{{-- <x-admin-layout> --}}
-  @extends('layouts.app')
+@extends('layouts.admin-layout')
     @push('styles')
 
     @endpush
@@ -55,4 +54,4 @@
         </div>
     </div>
     @endsection
-{{-- </x-admin-layout> --}}
+
