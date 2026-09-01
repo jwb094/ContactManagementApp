@@ -72,4 +72,3 @@
 
 
     @endsection
-</x-admin-layout>
