@@ -11,7 +11,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('contacts.book');
+        return view('contacts.index');
     }
 
     /**
