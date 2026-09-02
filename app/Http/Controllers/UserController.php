@@ -72,20 +72,18 @@ class UserController extends Controller
     public function login(CheckSignInUserRequest $request)
     {   
 
-        // $request->validate([
-        //     'email' => 'required',
-        //     'password' => 'required',
-        // ]);
         $loginCredentials = $request->validated();
-        //dd($loginCredentials);
-        //$credentials = $request->only('email', 'password');
 
         $authenciated = (new SignInUserAction())->handle($loginCredentials);
+
         if ($authenciated) {
-            return redirect()->intended(route('admin.dashboard'))->with('success', "You have successfully logged in");
+            return redirect()
+                    ->intended(route('admin.dashboard'))
+                    ->with('success', "You have successfully logged in");
         }
 
-        return  redirect('/user/signin')->with('status', true)->with('message', "Registration unsuccessfully");;
+        return  redirect('/user/signin')
+                ->with('message', "Login unsuccessfully");
     }
     /**
      * Logout
@@ -96,7 +94,7 @@ class UserController extends Controller
         Session::flush();
         Auth::logout();
 
-        return  redirect(route('home'));
+        return  redirect(route('user.login-page'));
     }
     public function signin()
     {
