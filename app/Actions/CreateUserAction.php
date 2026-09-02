@@ -16,7 +16,7 @@ class CreateUserAction
 
      public function execute(array $userData): User
     {   
-        $newUser['password'] = Hash::make($userData['password']);
+        $userData['password'] = Hash::make($userData['password']);
         $user = User::create($userData);
  
         return $user;
