@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-
+use App\Http\Requests\StoreNewUserRequest;
+use App\Actions\CreateUserAction;
 class UserController extends Controller
 {
     protected  User $User;
@@ -67,7 +68,8 @@ class UserController extends Controller
     }
 
     public function login(Request $request)
-    {
+    {   
+
         $request->validate([
             'email' => 'required',
             'password' => 'required',
@@ -105,25 +107,17 @@ class UserController extends Controller
     /**
      * Store a new user applicant record
      */
-    public function store(Request $request)
+    public function store(StoreNewUserRequest $request)
     {
-        //
 
-        $data = $request->validate([
-            'first_name'   => 'required|',
-            'last_name'    => 'required|string|max:255',
-            'email'   => 'required',
-            'password' => 'required',
-        ]);
+        $newUserData = (new CreateUserAction())->execute($request->validated());
+        
 
-        $data['password'] = Hash::make($request->password);
-
-
-        $newUser = $this->User::create($data);
-
-        if (!$newUser->id) {
-            return  redirect('/user/register')->wih('status', false)->with('message', "Registration failed, try again please");;
+        if (!$newUserData->id) {
+            return  redirect(route('user.register'))
+                ->with('status', false)->with('message', "Registration failed, try again please");;
         }
-        return  redirect('/user/signin')->with('status', true)->with('message', "Registration successfully");;
+        return  redirect(route('user.login-page'))->with('status', true)
+                ->with('message', "Registration successfully");;
     }
 }
