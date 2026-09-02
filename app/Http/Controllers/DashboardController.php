@@ -24,7 +24,7 @@ class DashboardController extends Controller
     {
         //
         
-        return view('contacts.dashboard');
+        return view('dashboard.index');
     }
 
     /**
