@@ -34,7 +34,7 @@
                     <div class="col-md-6">
                         <div class="card shadow-sm">
                             <div class="card-body">
-                                <a class="btn btn-primary btn-sm " href="/admin/csv/contact_export">
+                                <a class="btn btn-primary btn-sm " href={{ route('admin.csv.export_page') }}>
                                     {{-- <p class="d-flex flex-row gap-5"> --}}
                                     <span class="d-flex align-items-center">
 

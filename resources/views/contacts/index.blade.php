@@ -123,7 +123,7 @@
             </nav>--}}
          
             <!-- Main content -->
-            <section class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <section class="col-md-9 mx-sm-auto col-lg-10 px-md-4">
 
                 <div class="row">
                     <div class="my-4">
@@ -199,7 +199,7 @@
                                 <td colspan="2">Larry the Bird</td>
                                 <td></td>
                                 <td>
-                                    <a class="btn btn-secondary" href=""> Edit</a>
+                                    <a class="btn btn-secondary" href={{ route('admin.contact.edit',4) }}> Edit</a>
                                     {{-- <a class="btn btn-danger" href="href="{{ route('delete_contact') }}""> Delete</a> --}}
 
                                     {{-- <form action="{{ route('delete_contact') }}" method="POST" style="display:inline;">
