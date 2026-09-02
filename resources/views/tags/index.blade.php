@@ -14,6 +14,9 @@
             <section class="col-md-9 mx-sm-auto col-lg-10 px-md-4">
 
                 <div class="row">
+                          <div class="my-4">
+                        <a class="col-sm-2 btn btn-primary" href="{{ route('admin.tags.new') }}">New Tag</a>
+                    </div>
                     <form action="/register" method="POST">
 
                         <div class="row">
@@ -69,8 +72,12 @@
                                 <th scope="row">1</th>
                                 <td>Mark</td>
                                 <td>
-                                    <a href="/admin/tags/edit/" class="btn btn-primary">Update</a>
-                                    <a href="/admin/tags/delete/" class="btn btn-danger">delete</a></td>
+                                    <a href={{ route('admin.tags.edit',33) }} class="btn btn-primary">Update</a>
+                                 {{-- <form action="{{ route('admin.tags.delete',233) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Contact?')">Delete</button>
+                                    </form> --}}
                                 <td></td>
                             </tr>
 
