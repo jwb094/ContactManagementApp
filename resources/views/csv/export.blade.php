@@ -35,10 +35,10 @@
                             <div class="card-body">
                           
 
-                                <form action="">
+                                <form action={{ route('admin.csv.export') }} method="POST">
                                     
                                     <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                                    <label for="exampleFormControlInput1" class="form-label">File Name</label>
                                     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                                     </div>
 
