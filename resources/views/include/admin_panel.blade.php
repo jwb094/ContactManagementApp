@@ -88,7 +88,7 @@
 
         <hr class="border-secondary">
 
-        <a href="#" class="nav-link">
+        <a href={{ route('admin.logout') }} class="nav-link">
             <span class="me-2">🚪</span>
             Logout
         </a>
