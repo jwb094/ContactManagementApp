@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\StoreNewUserRequest;
+use App\Http\Requests\CheckSignInUserRequest;
 use App\Actions\CreateUserAction;
+use App\Actions\SignInUserAction;
 class UserController extends Controller
 {
     protected  User $User;
@@ -67,18 +69,20 @@ class UserController extends Controller
         //
     }
 
-    public function login(Request $request)
+    public function login(CheckSignInUserRequest $request)
     {   
 
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-        $credentials = $request->only('email', 'password');
+        // $request->validate([
+        //     'email' => 'required',
+        //     'password' => 'required',
+        // ]);
+        $loginCredentials = $request->validated();
+        //dd($loginCredentials);
+        //$credentials = $request->only('email', 'password');
 
-
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended(route('user.dashboard'))->with('success', "You have successfully logged in");
+        $authenciated = (new SignInUserAction())->handle($loginCredentials);
+        if ($authenciated) {
+            return redirect()->intended(route('admin.dashboard'))->with('success', "You have successfully logged in");
         }
 
         return  redirect('/user/signin')->with('status', true)->with('message', "Registration unsuccessfully");;
