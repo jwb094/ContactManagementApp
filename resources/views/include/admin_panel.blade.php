@@ -24,8 +24,14 @@
 
     <nav class="nav flex-column">
 
-        <a href={{ route('admin.dashboard') }} class="nav-link active">
-            <span class="me-2">▣</span>
+        <a href={{ route('admin.dashboard') }}
+        @if(request()->is('admin/dashboard'))
+             class="nav-link active"
+        @else
+             class="nav-link"
+        @endif
+       >
+            <span class="me-2"><i class="bi bi-clipboard-data"></i></span>
             Dashboard
         </a>
 
@@ -34,22 +40,41 @@
             Users
         </a> --}}
 
-        <a href={{ route('admin.contacts_list') }} class="nav-link">
+        <a href={{ route('admin.contacts_list') }} 
+        @if(str_contains(url()->current(), 'admin/contacts'))
+             class="nav-link active"
+        @else
+             class="nav-link"
+        @endif>
             <span class="me-2"><i class="bi bi-person-lines-fill"></i></span>
             Contacts
         </a>
 
-        <a href={{ route('admin.tags') }} class="nav-link">
+        <a href={{ route('admin.tags') }}       @if(request()->is('admin/tags'))
+             class="nav-link active"
+        @else
+             class="nav-link"
+        @endif>
             <span class="me-2"><i class="bi bi-bookmark"></i></span>
             Tags
         </a>
 
-        <a href={{ route('admin.profile',1) }}  class="nav-link">
-            <span class="me-2">📦</span>
+        <a href={{ route('admin.profile',1) }}  
+          @if(str_contains(url()->current(), 'admin/profile'))
+             class="nav-link active"
+        @else
+             class="nav-link"
+        @endif>
+            <span class="me-2"><i class="bi bi-person-square"></i></span>
             My Profile
         </a>
 
-        <a href={{ route('admin.csv.index') }} class="nav-link">
+        <a href={{ route('admin.csv.index') }} 
+        @if(request()->is('admin/csv'))
+             class="nav-link active"
+        @else
+             class="nav-link"
+        @endif>
             <span class="me-2"><i class="bi bi-file-earmark-fill"></i></span>
             Export/Import
         </a>
