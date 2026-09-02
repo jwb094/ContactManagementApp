@@ -11,7 +11,7 @@ class CSVController extends Controller
      */
     public function index()
     {
-        return view('csv.csv');
+        return view('csv.index');
     }
 
     /**
