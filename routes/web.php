@@ -7,7 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [UserController::class, 'index']);
+
 
 // Route::get('/register', function () {
 //     return view('register');
@@ -23,6 +23,7 @@ Route::get('/', [UserController::class, 'index']);
 
 //User
 //Route::get('/user/signin', [UserController::class, 'signin'])->name('user-login-page');
+Route::get('/', [UserController::class, 'index'])->name('user.login-page');
 Route::post('/user/login', [UserController::class, 'login'])->name('user.login');
 Route::get('/register', [UserController::class, 'register'])->name('user.register');
 Route::post('/user/create', [UserController::class, 'store'])->name('user.store');
