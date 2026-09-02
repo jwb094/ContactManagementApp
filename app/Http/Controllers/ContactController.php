@@ -14,25 +14,23 @@ class ContactController extends Controller
         return view('contacts.book');
     }
 
-    public function new_contact()
-    {
-        return view('contacts.new_contact');
-    }
-
-    public function edit_contact()
-    {
-        return view('contacts.edit_contact');
-    }
-
-
-
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('contacts.create');
     }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit()
+    {
+        return view('contacts.edit');
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -50,13 +48,6 @@ class ContactController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
