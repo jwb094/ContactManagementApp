@@ -11,15 +11,15 @@ class TagController extends Controller
      */
     public function index()
     {
-        return view('tags.home');
+        return view('tags.index');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function add()
     {
-        return view('tags.new');
+        return view('tags.add');
     }
 
     /**
