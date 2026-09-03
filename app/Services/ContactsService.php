@@ -60,11 +60,21 @@ class ContactsService
     }
 
 
-    public function createContact(){
+    public function createContact(array $newUserData): Contact{
 
+        $user = Contact::create($newUserData);
+ 
+        return $user;
     }
 
-    public function updateContact(){
+    public function updateContact(array $updatedUserData,int $updatedUserDataId): Contact{
+        
+        $contact = Contact::findOrFail($updatedUserDataId);
+
+        $contact->update($updatedUserData);
+        
+        return $contact->refresh();
+
         
     }
 
