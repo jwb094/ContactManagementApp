@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('contacts', function (Blueprint $table) {
+               $table->dropForeign(['creator_id']);
                 $table->dropColumn('creator_id');
         });
     }
