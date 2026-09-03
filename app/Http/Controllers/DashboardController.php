@@ -22,10 +22,7 @@ class DashboardController extends Controller
      */
     public function index(DashboardService $dashboardService)
     {
-        //  
-
         $dashboardData = $dashboardService->dashboardHomeInfo();
-       // dd($dashboardData);
         return view('dashboard.index',compact('dashboardData'));
     }
 
