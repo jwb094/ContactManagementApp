@@ -3,15 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Services\ContactsService;
 class ContactController extends Controller
-{
+{   
+     protected ContactsService $contactService;
+     public function __construct(ContactsService $contactsService){
+
+      $this->contactService = $contactsService;
+ }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        return view('contacts.index');
+    public function index(Request $request)
+    {   
+        $data = $this->contactService->Index($request);
+        return view('contacts.index',compact('data'));
     }
 
     /**
