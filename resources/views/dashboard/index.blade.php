@@ -1,142 +1,166 @@
 @extends('layouts.admin-layout')
-    @push('styles')
-    <link rel="stylesheet" href=" {{ URL::asset('css/dashboard.css') }}">
-    @endpush
-    @section('title','Dashboard')
-    @section('content')
-    <div class="container-fluid p-4">
+@push('styles')
+<link rel="stylesheet" href=" {{ URL::asset('css/dashboard.css') }}">
+@endpush
+@section('title','Dashboard')
+@section('content')
+<div class="container-fluid p-4">
 
-        <!-- Page Header -->
+    <!-- Page Header -->
 
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
 
-            <div>
-                <h1 class="h3 mb-1">
-                    Dashboard
-                </h1>
+        <div>
+            <h1 class="h3 mb-1">
+                Dashboard
+            </h1>
 
-                <p class="text-muted mb-0">
-                    Welcome back, Admin.
-                </p>
-            </div>
-
-            <button class="btn btn-primary mt-3 mt-md-0">
-                + Add New
-            </button>
-
+            <p class="text-muted mb-0">
+                Welcome back, Admin.
+            </p>
         </div>
 
 
-        <!-- ==========================================
+
+    </div>
+
+
+    <!-- ==========================================
              Statistics
         ========================================== -->
 
-        <div class="row g-4 mb-4">
+    <div class="row g-4 mb-4">
 
-            <div class="col-12 col-sm-6 col-xl-3">
+        <div class="col-12 col-sm-6 col-xl-4">
 
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
 
-                        <p class="text-muted mb-2">
-                            Total Users
-                        </p>
+                    <p class="text-muted mb-2">
+                        Total Contacts
+                    </p>
 
-                        <h2 class="h3 mb-0">
-                            1,248
-                        </h2>
+                    <h2 class="h3 mb-0">
+                        {{ $dashboardData['totalContact'] }}
+                    </h2>
 
-                        <small class="text-success">
-                            ↑ 12.5% this month
-                        </small>
 
-                    </div>
                 </div>
-
-            </div>
-
-
-            <div class="col-12 col-sm-6 col-xl-3">
-
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body">
-
-                        <p class="text-muted mb-2">
-                            Total Posts
-                        </p>
-
-                        <h2 class="h3 mb-0">
-                            356
-                        </h2>
-
-                        <small class="text-success">
-                            ↑ 8.2% this month
-                        </small>
-
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="col-12 col-sm-6 col-xl-3">
-
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body">
-
-                        <p class="text-muted mb-2">
-                            Active Jobs
-                        </p>
-
-                        <h2 class="h3 mb-0">
-                            84
-                        </h2>
-
-                        <small class="text-success">
-                            ↑ 5.4% this month
-                        </small>
-
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="col-12 col-sm-6 col-xl-3">
-
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body">
-
-                        <p class="text-muted mb-2">
-                            Revenue
-                        </p>
-
-                        <h2 class="h3 mb-0">
-                            £12,450
-                        </h2>
-
-                        <small class="text-danger">
-                            ↓ 2.1% this month
-                        </small>
-
-                    </div>
-                </div>
-
             </div>
 
         </div>
 
 
-        <!-- ==========================================
+        <div class="col-12 col-sm-6 col-xl-4">
+
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+
+                    <p class="text-muted mb-2">
+                        New Contacts This Month
+                    </p>
+
+                    <h2 class="h3 mb-0">
+                        {{ $dashboardData['newContactsThisMonth'] }}
+                    </h2>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-12 col-sm-6 col-xl-4">
+
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+
+                    <p class="text-muted mb-2">
+                        Your Favourites Count
+                    </p>
+
+                    <h2 class="h3 mb-0">
+                        {{ $dashboardData['favourites'] }}
+                    </h2>
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-12 col-sm-6 col-xl-6">
+
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+
+                    <p class="text-muted mb-2">
+                        Birthdays Upcoming
+                    </p>
+
+                    <h2 class="h3 mb-0">
+                        @foreach($dashboardData['birthdaysUpcoming'] as $key => $value)
+                                <h4>{{  $value['first_name']." " .$value['last_name']}} - {{ \Carbon\Carbon::parse($value->date_of_birth)->format('d M') }}</h4>
+                        @endforeach 
+                    </h2>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-12 col-sm-6 col-xl-6">
+
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+
+                    <p class="text-muted mb-2">
+                      Recently Added
+                    </p>
+
+                    <h2 class="h3 mb-0">
+                        @foreach($dashboardData['RecentlyAdded'] as $key => $value)
+                                <h4>{{  $value['first_name']." " .$value['last_name']}} was added on {{ \Carbon\Carbon::parse($value->created_at)->format('d M') }}</h4>
+                        @endforeach 
+            
+                    </h2>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+    
+
+
+
+
+    </div>
+
+
+    <!-- ==========================================
              Dashboard Content
         ========================================== -->
 
-        <div class="row g-4">
+    <div class="row g-4">
 
-            <!-- Recent Activity -->
 
-            <div class="col-12 col-xl-8">
 
+        <div class="col-12 col-xl-8">
+            {{--
                 <div class="card border-0 shadow-sm">
 
                     <div class="card-header bg-white py-3">
@@ -214,14 +238,14 @@
 
                     </div>
 
-                </div>
+                </div> --}}
 
-            </div>
+        </div>
 
 
-            <!-- Quick Actions -->
+        <!-- Quick Actions -->
 
-            <div class="col-12 col-xl-4">
+        {{-- <div class="col-12 col-xl-4">
 
                 <div class="card border-0 shadow-sm">
 
@@ -257,10 +281,48 @@
 
                 </div>
 
-            </div>
-
-        </div>
+            </div> --}}
 
     </div>
-    @endsection
 
+    <div class="container">
+    <div class="row justify-content-center g-4">
+        <div class="col-xs-12 col-md-10 ">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
+
+                <div class="card-body">
+
+                    <h1>{{ $dashboardData['chartContactsByMonthCart']->options['chart_title'] }}</h1>
+                    {!! $dashboardData['chartContactsByMonthCart']->renderHtml() !!}
+
+                </div>
+
+            </div>
+        </div>
+          <div class="col-xs-12 col-md-10 ">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
+
+                <div class="card-body">
+
+                    <h1>{{ $dashboardData['chartContactsByCountyChart']->options['chart_title'] }}</h1>
+                    {!! $dashboardData['chartContactsByCountyChart']->renderHtml() !!}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+@endsection
+
+@push('scripts')
+{!! $dashboardData['chartContactsByMonthCart']->renderChartJsLibrary() !!}
+{!! $dashboardData['chartContactsByMonthCart']->renderJs() !!}
+
+{!! $dashboardData['chartContactsByCountyChart']->renderChartJsLibrary() !!}
+{!! $dashboardData['chartContactsByCountyChart']->renderJs() !!}
+@endpush
