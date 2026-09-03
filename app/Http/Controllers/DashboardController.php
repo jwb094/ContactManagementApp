@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 //use App\Models\Tag;
-use Illuminate\Support\Facades\Auth;
+use App\Services\DashboardService;
 class DashboardController extends Controller
 {
     protected  User $User;
@@ -20,11 +20,13 @@ class DashboardController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(DashboardService $dashboardService)
     {
-        //
-        
-        return view('dashboard.index');
+        //  
+
+        $dashboardData = $dashboardService->dashboardHomeInfo();
+       // dd($dashboardData);
+        return view('dashboard.index',compact('dashboardData'));
     }
 
     /**
