@@ -14,6 +14,10 @@ class Contact extends Model
 
      protected $primaryKey = 'id'; 
 
+     protected $casts = [
+    'date_of_birth' => 'date',
+    'is_favourite' => 'boolean',
+    ];
     protected $fillable = [
         "first_name",
         "last_name",
