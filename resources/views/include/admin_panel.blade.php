@@ -40,7 +40,7 @@
             Users
         </a> --}}
 
-        <a href={{ route('admin.contacts_list') }} 
+        <a href={{ route('admin.contacts.index') }} 
         @if(str_contains(url()->current(), 'admin/contacts'))
              class="nav-link active"
         @else
