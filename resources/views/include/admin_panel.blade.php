@@ -50,7 +50,7 @@
             Contacts
         </a>
 
-        <a href={{ route('admin.tags') }}       @if(request()->is('admin/tags'))
+        <a href={{ route('admin.tags.index') }}       @if(request()->is('admin/tags'))
              class="nav-link active"
         @else
              class="nav-link"
