@@ -1,93 +1,71 @@
 @extends('layouts.admin-layout')
-    @push('styles')
-    <link rel="stylesheet" href=" {{ URL::asset('css/contact.css') }}">
-    @endpush
-    @section('title','Contact Book')
-    @section('content')
-    <h1 class="h3 mt-3 fw-normal text-center"> My Tags</h1>
+@push('styles')
+<link rel="stylesheet" href=" {{ URL::asset('css/contact.css') }}">
+@endpush
+@section('title','Contact Book')
+@section('content')
+<h1 class="h3 mt-3 fw-normal text-center"> My Tags</h1>
 
-    <div class="container-fluid">
-        <div class="row">
+<div class="container-fluid">
+    <div class="row">
 
 
-            <!-- Main content -->
-            <section class="col-md-9 mx-sm-auto col-lg-10 px-md-4">
+        <!-- Main content -->
+        <section class="col-md-9 mx-sm-auto col-lg-10 px-md-4">
 
-                <div class="row">
-                          <div class="my-4">
-                        <a class="col-sm-2 btn btn-primary" href="{{ route('admin.tags.new') }}">New Tag</a>
-                    </div>
-                    <form action="/register" method="POST">
-
-                        <div class="row">
-                            <div class="col-2 mb-3">
-                                <input type="text" class="form-control" name="first_name" id="" placeholder="first Name">
-                            </div>
-
-                            {{-- <div class="col-2 mb-3">
-                                <input type="text" class="form-control" name="lasst_name" id="" placeholder="Last Name">
-                            </div>
-                            <div class="col-2 mb-3">
-                                <input type="text" class="form-control" name="lasst_name" id="" placeholder="email">
-                            </div>
-                            <div class="col-1  | form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Twitter
-                                </label>
-                            </div>
-                            <div class="col-1 ml-1 | form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                <label class="form-check-label" for="flexCheckChecked">
-                                    LinkedIn
-                                </label>
-                            </div>
-                            <div class="col-1 ml-1 | form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                <label class="form-check-label" for="flexCheckChecked">
-                                    Facebook
-                                </label>
-                            </div>
-                            <div class="col-1 ml-1 | form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                <label class="form-check-label" for="flexCheckChecked">
-                                    Favourite
-                                </label>
-                            </div> --}}
-                        </div>
-
-                    </form>
-
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Actions</th>
-                                <th scope="col">Created</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>
-                                    <a href={{ route('admin.tags.edit',33) }} class="btn btn-primary">Update</a>
-                                 {{-- <form action="{{ route('admin.tags.delete',233) }}" method="POST" style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Contact?')">Delete</button>
-                                    </form> --}}
-                                <td></td>
-                            </tr>
-
-                        </tbody>
-                    </table>
+            <div class="row">
+                <div class="my-4">
+                    <a class="col-sm-2 btn btn-primary" href="{{ route('admin.tags.new') }}">New Tag</a>
                 </div>
 
-            </section>
+                <form action={{ route('admin.tags.index') }} method="GET">
 
-        </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-2 mb-3">
+                            <input type="text" class="form-control" name="name" id="" placeholder="Tag name">
+                        </div>
+                        <div class="col-12 col-md-3 mb-3 | form-check">
+                            <button type="submit" class="btn btn-primary mt-6 | text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                                Search
+                            </button>
+                         
+                        </div>
+                           <div class="col-12 col-md-3 mb-3 | form-check">
+                                <a class="btn btn-secondary" href={{ route('admin.tags.index') }}> Reset</a>
+                            </div>
+                    </div>
+
+                </form>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($data['tags'] as $key => $value)
+                        <tr>
+                            <td>{{ $value->name }}</td>
+                            <td>
+                                <a href={{ route('admin.tags.edit',$value) }} class="btn btn-primary">Update</a>
+                                <form action="{{ route('admin.tags.delete',$value) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Tag?')">Delete</button>
+                                </form>
+                            <td></td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+                {{ $data['tags']->links() }}
+            </div>
+        </section>
+
     </div>
-    @endsection
-
+</div>
+@endsection
