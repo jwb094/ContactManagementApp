@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\StoreNewUserRequest;
 use App\Http\Requests\CheckSignInUserRequest;
+use App\Http\Requests\UpdateAdminUserRequest;
 use App\Actions\CreateUserAction;
 use App\Actions\SignInUserAction;
+use App\Services\AdminUserService;
 class UserController extends Controller
 {
     protected  User $User;
@@ -50,23 +52,35 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('profile.edit');
+        $user = auth()->user();
+        //dd($user);
+        return view('profile.edit',["user" => $user]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateAdminUserRequest $request,AdminUserService $adminUserService ,string $id)
     {
         //
+
+        $adminUserService->updateAdminUser($request->validated(),(int)  $id);
+
+         
+        return redirect()->
+                    route('admin.profile')
+                    ->with('success', "Admin details were updated");
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(User $user)
-    {
-        //
+    {   
+
+        $user->delete();
+        return view('home');
     }
 
     public function login(CheckSignInUserRequest $request)
