@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Services;
-// use App\Http\Request;
-// use App\Http\Request;
 use App\Models\Tag;
-
+use Illuminate\Support\Str;
 class TagService
 {
 
@@ -38,8 +36,25 @@ class TagService
     }
 
 
-    public function createTag(){}
+    public function createTag(array $data): Tag{
+        
+        $tagData =["name" => $data['name'],
+                "slug" => Str::slug($data['name'])];
+
+        $newTag = Tag::create($tagData);
+ 
+        return $newTag;
+    }
 
 
-    public function UpdateTag(){}
+    public function UpdateTag(array $updatedTagData ,int $updatedTagDataId){
+        $tag = Tag::findOrFail($updatedTagDataId);
+
+        $updateTagData =["name" => $updatedTagData['name'],
+                "slug" => Str::slug($updatedTagData['name'])];
+
+        $tag->update($updateTagData);
+        
+        return $tag->refresh();
+    }
 }
