@@ -16,6 +16,7 @@ class TagSeeder extends Seeder
         Tag::truncate();
         // // 2️⃣ Categories
         $categories = Tag::factory()
+          ->count(19)
             ->create();
     }
 }
