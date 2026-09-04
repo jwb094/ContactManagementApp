@@ -78,7 +78,4 @@ class ContactsService
         
     }
 
-    public function deleteContact(){
-        
-    }
 }
