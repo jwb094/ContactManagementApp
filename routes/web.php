@@ -50,13 +50,13 @@ Route::prefix('admin')->group(function () {
     //Contact 
     Route::prefix('contacts')->group(function () {
     
-    Route::get('/', [ContactController::class, 'index'])->name('admin.contacts_list');
+    Route::get('/', [ContactController::class, 'index'])->name('admin.contacts.index');
     Route::get('/new', [ContactController::class, 'create'])->name('admin.contact.new');
     Route::post('/store/', [ContactController::class, 'store'])->name('admin.contact.store');
     Route::get('/show/{id}', [ContactController::class, 'show'])->name('admin.contact.show');
-    Route::get('/edit/{id}', [ContactController::class, 'edit'])->name('admin.contact.edit');;
-    Route::get('/update/{id}', [ContactController::class, 'update'])->name('admin.contact.update');;
-    Route::put('/delete/{id}', [ContactController::class, 'delte'])->name('admin.contact.delete');
+    Route::get('/edit/{contact}', [ContactController::class, 'edit'])->name('admin.contact.edit');
+    Route::put('/update/{id}', [ContactController::class, 'update'])->name('admin.contact.update');
+    Route::delete('/delete/{id}', [ContactController::class, 'destroy'])->name('admin.contact.delete');
     });
 
   
