@@ -3,15 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Services\TagService;
+use App\Models\Tag;
 class TagController extends Controller
-{
+{   
+
+     protected TagService $tagService;
+     public function __construct(TagService $tagService){
+
+      $this->tagService = $tagService;
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        return view('tags.index');
+    public function index(Request $request)
+    {   
+        $data = $this->tagService->Index($request);
+        return view('tags.index',['data' => $data]);
     }
 
     /**
@@ -42,9 +51,11 @@ class TagController extends Controller
     /**
      * Show the form for editing a Tag record resource.
      */
-    public function edit(string $id)
+    public function edit(Tag $tag)
     {
-        return view('tags.edit');
+        return view('tags.edit',[
+            "tag" => $tag
+        ]);
     }
 
     /**
