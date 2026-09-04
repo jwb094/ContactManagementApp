@@ -16,38 +16,12 @@
             </ul>
         </div>
         @endif
-        <!-- Sidebar -->
-        {{--<nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar " id="sidebar-menu">
-                <div class="position-sticky pt-3">
-
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">
-                                Dashboard
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Orders
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Products
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-            </nav>--}}
 
 
         <!-- Main content -->
         <div class="col-md-9 mx-sm-auto col-lg-10 px-md-4">
             <div class="col-md-12">
-                <h1 class="">Edit X Contact</h1>
+                <h1 class="">Edit {{ $contact->first_name ." ". $contact->last_name}} Contact Details</h1>
             </div>
             <section id="form-container" class="w-96 md:w-1/2 lg:w-1/2 xl:w-1/2">
 
