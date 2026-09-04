@@ -62,11 +62,12 @@ Route::prefix('admin')->group(function () {
   
   Route::prefix('tags')->group(function () {
 
-    Route::get('/', [TagController::class, 'index'])->name('admin.tags');
+    Route::get('/', [TagController::class, 'index'])->name('admin.tags.index');
     Route::get('/new', [TagController::class, 'add'])->name('admin.tags.new');
     Route::post('/store', [TagController::class, 'store'])->name('admin.tags.store');
-    Route::get('/edit/{id}', [TagController::class, 'edit'])->name('admin.tags.edit');
-    Route::get('/update/{id}', [TagController::class, 'update'])->name('admin.tags.update');;
+    Route::get('/edit/{tag}', [TagController::class, 'edit'])->name('admin.tags.edit');
+    Route::put('/update/{tag}', [TagController::class, 'update'])->name('admin.tags.update');
+    Route::delete('/delete/{tag}', [TagController::class, 'destroy'])->name('admin.tags.delete');
   });
     
   Route::prefix('csv')->group(function () {
