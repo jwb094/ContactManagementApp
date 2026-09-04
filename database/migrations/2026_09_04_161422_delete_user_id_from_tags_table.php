@@ -12,8 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tags', function (Blueprint $table) {
-                $table->dropForeign(['user_id']);
-                $table->dropColumn('user_id');
+            $table->dropForeign(['user_id']);
+            $table->dropUnique('tags_user_id_name_unique');
+            $table->dropColumn('user_id');
+            $table->string('slug');
+
         });
     }
 
