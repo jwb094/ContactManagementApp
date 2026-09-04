@@ -58,8 +58,8 @@
             <span class="me-2"><i class="bi bi-bookmark"></i></span>
             Tags
         </a>
-
-        <a href={{ route('admin.profile',1) }}  
+      
+        <a href={{ route('admin.profile') }}  
           @if(str_contains(url()->current(), 'admin/profile'))
              class="nav-link active"
         @else
