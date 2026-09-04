@@ -38,12 +38,12 @@ Route::get('/user/logout', [UserController::class, 'logout'])->name('admin.logou
 // });
 
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['auth'])->group(function () {
     
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get('/profile/{id}', [UserController::class, 'edit'])->name('admin.profile');
-    Route::put('/profile/update/{id}', [UserController::class, 'update'])->name('admin.profile.update');
-    Route::delete('/profile/delete/{id}', [UserController::class, 'delete'])->name('admin.profile.delete');
+    Route::get('/profile', [UserController::class, 'edit'])->name('admin.profile');
+    Route::put('/profile/update/{profile}', [UserController::class, 'update'])->name('admin.profile.update');
+    Route::delete('/profile/delete/{profile}', [UserController::class, 'delete'])->name('admin.profile.delete');
 
 
 
