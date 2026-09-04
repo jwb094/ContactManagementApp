@@ -32,7 +32,7 @@
     <main class="container-fluid ">
         @yield('content')
     </main>
-    @include('include.footer')
+    @include('include.public_footer')
     @stack('scripts')
     <script src="{{ URL::asset('js/mobile_nav.js') }}"></script>
       <script src="{{ URL::asset('js/admin_nav.js') }}"></script>
