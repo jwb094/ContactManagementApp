@@ -56,7 +56,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/show/{id}', [ContactController::class, 'show'])->name('admin.contact.show');
     Route::get('/edit/{contact}', [ContactController::class, 'edit'])->name('admin.contact.edit');
     Route::put('/update/{id}', [ContactController::class, 'update'])->name('admin.contact.update');
-    Route::delete('/delete/{id}', [ContactController::class, 'destroy'])->name('admin.contact.delete');
+    Route::delete('/delete/{contact}', [ContactController::class, 'destroy'])->name('admin.contact.delete');
     });
 
   
