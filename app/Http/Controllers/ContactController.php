@@ -91,6 +91,8 @@ class ContactController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Contact::find($id)->delete();
+ 
+       return redirect()->route('admin.contacts.index')->with('Status',"Record was delete");
     }
 }
