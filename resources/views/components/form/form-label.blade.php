@@ -1,3 +1,1 @@
-<div>
-    <!-- An unexamined life is not worth living. - Socrates -->
-</div>
+<label for="exampleFormControlInput1" class="form-label">{{ $slot }}</label>
