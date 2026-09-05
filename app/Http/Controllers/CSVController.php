@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\ExportContactsRequest;
 use App\Services\CSVService;
-use App\Services\ExportContactService;
 
 class CSVController extends Controller
 {
 
      protected CSVService $CSVService;
+
      public function __construct(CSVService $CSVService){
 
       $this->CSVService = $CSVService;
@@ -35,16 +35,19 @@ class CSVController extends Controller
     /**
      * Import data from CSV file into database
      */
-    public function csv_import() {}
+    public function csv_import() {
+
+
+    }
 
     /**
      * Export data from CSV file into database
      */
-    public function csv_export(ExportContactService $exportContactService,ExportContactsRequest $request) {
+    public function csv_export(ExportContactsRequest $request) {
 
         $formValidatedColums = $request->validated('fields');
         $formValidatedFileName = $request->validated('file_name');
 
-        return $exportContactService->export($formValidatedColums,$formValidatedFileName);
+        return $this->CSVService->export($formValidatedColums,$formValidatedFileName);
     }
 }
