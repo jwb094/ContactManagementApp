@@ -75,6 +75,6 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/', [CSVController::class, 'index'])->name('admin.csv.index');
     Route::get('/contact_export', [CSVController::class, 'contact_export'])->name('admin.csv.export_page');
     Route::post('/contact_import', [CSVController::class, 'import'])->name('admin.csv.import');
-    Route::post('/csv_export', [CSVController::class, 'export'])->name('admin.csv.export');
+    Route::post('/csv_export', [CSVController::class, 'csv_export'])->name('admin.csv.export');
   });
 });
