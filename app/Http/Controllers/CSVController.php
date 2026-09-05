@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Services\CSVService;
 class CSVController extends Controller
 {
+
+     protected CSVService $CSVService;
+     public function __construct(CSVService $CSVService){
+
+      $this->CSVService = $CSVService;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -18,8 +24,9 @@ class CSVController extends Controller
      * Display a CSV export PAge of the resource.
      */
     public function contact_export()
-    {
-        return view('csv.export');
+    {   
+        $fields = $this->CSVService->ExportDatafields();
+        return view('csv.export',['attributes' => $fields]);
     }
 
 
