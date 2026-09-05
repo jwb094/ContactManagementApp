@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use App\Http\Requests\ExportContactsRequest;
 use App\Services\CSVService;
+use App\Services\ExportContactService;
+
 class CSVController extends Controller
 {
 
@@ -39,5 +40,11 @@ class CSVController extends Controller
     /**
      * Export data from CSV file into database
      */
-    public function csv_export() {}
+    public function csv_export(ExportContactService $exportContactService,ExportContactsRequest $request) {
+
+        $formValidatedColums = $request->validated('fields');
+        $formValidatedFileName = $request->validated('file_name');
+
+        return $exportContactService->export($formValidatedColums,$formValidatedFileName);
+    }
 }
