@@ -1,1 +1,1 @@
-<label for="exampleFormControlInput1" class="form-label">{{ $slot }}</label>
+<label for="{{ $slot }}" class={{ $slot }}>{{ $slot }}</label>
