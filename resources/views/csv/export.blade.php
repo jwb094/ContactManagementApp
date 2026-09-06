@@ -27,13 +27,11 @@
                                     <x-form.form-label for="" class="form-label"> File Name</x-form.form-label>
                                     <x-form.form-input type="text" class="form-control" name="file_name" placeholder="contacts_000"></x-form.form-input>
                                 </div>
-                                <div class="mb-3">
-                                    @foreach($attributes as $key => $value)
-                                    <x-form.form-checkbox name="fields[]">{{ $value }} </x-form.form-checkbox>
-                                    @endforeach
-                                </div>
-
-
+                                @foreach($attributes as $key => $value)
+                                    <div class="mb-3">
+                                        <x-form.form-checkbox class="form-check-input" type="checkbox" name="fields[]" value="{{ $value }}">{{ $value }} </x-form.form-checkbox>
+                                    </div>
+                                @endforeach
                                 <button type="submit" class="btn btn-primary btn-sm"> <i class="bi bi-upload"></i>Export</button>
                             </form>
 
