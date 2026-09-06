@@ -20,41 +20,39 @@
 
                     <div class="row">
                         <div class="col-12 col-md-2 mb-3">
-                            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first Name">
+                            <x-form.form-input type="text" id="first_name" class="form-control" name="first_name" placeholder="First Name"></x-form.form-input>
                         </div>
 
                         <div class="col-12 col-md-2 mb-3">
-                            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name">
+                            <x-form.form-input type="text" id="first_name" class="form-control" name="last_name" placeholder="Last Name"></x-form.form-input>
                         </div>
                         <div class="col-12 col-md-2 mb-3">
-                            <input type="text" class="form-control" name="email" id="email" placeholder="email">
+                            <x-form.form-input type="text" id="email" class="form-control" name="email" placeholder="Email"></x-form.form-input>
                         </div>
                         <div class="col-12 col-md-2 mb-3 | form-check">
-                            <input class="form-check-input" type="checkbox" name="twitter" value="1" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Twitter
-                            </label>
+                            <x-form.form-label for="twitter" class="form-label">Twitter</x-form.form-label>
+                            <x-form.form-checkbox type="checkbox" id="twitter" class="form-check-input" value="1" name="twitter"></x-form.form-checkbox>
                         </div>
                         <div class="col-12 col-md-2 mb-3 | form-check">
-                            <input class="form-check-input" type="checkbox" name="linkedin" value="1" id="flexCheckChecked">
-                            <label class="form-check-label" for="flexCheckChecked">
-                                LinkedIn
-                            </label>
+                            <x-form.form-label for="linkedin" class="form-label">LinkedIn</x-form.form-label>
+                            <x-form.form-checkbox type="checkbox" id="linkedin" class="form-check-input" value="1" name="linkedin"></x-form.form-checkbox>
                         </div>
                         <div class="col-12 col-md-2 mb-3 | form-check">
-                            <input class="form-check-input" type="checkbox" name="facebook" value="1" id="flexCheckChecked">
-                            <label class="form-check-label" for="flexCheckChecked">
-                                Facebook
-                            </label>
+                            <x-form.form-label for="facebook" class="form-label">Facebook</x-form.form-label>
+                            <x-form.form-checkbox type="checkbox" id="facebook" class="form-check-input" value="1" name="facebook"></x-form.form-checkbox>
                         </div>
                         <div class="col-12 col-md-2 mb-3 | form-check">
-                            <input class="form-check-input" type="checkbox" name="favourite" value="1" id="flexCheckChecked">
-                            <label class="form-check-label" for="flexCheckChecked">
-                                Favourite
-                            </label>
+
+                            <x-form.form-label for="instagram" class="form-label">Insta</x-form.form-label>
+                            <x-form.form-checkbox type="checkbox" id="instagram" class="form-check-input" value="1" name="instagram"></x-form.form-checkbox>
                         </div>
                         <div class="col-12 col-md-2 mb-3 | form-check">
-                            <button type="submit" class="btn btn-primary mt-6 | text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                            <x-form.form-label for="is_favourite" class="form-label">Is Favourite</x-form.form-label>
+                            <x-form.form-checkbox type="checkbox" id="is_favourite" class="form-check-input" value="1" name="is_favourite"></x-form.form-checkbox>
+                        </div>
+
+                        <div class="col-12 col-md-2 mb-3 | form-check">
+                            <button type="submit" class="btn btn-primary mt-6 | text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm  py-2.5">
                                 Search
                             </button>
                         </div>
