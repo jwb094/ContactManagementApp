@@ -37,39 +37,31 @@
                     <div class="grid gap-4 sm:grid-cols-1 sm:gap-6">
                         <div class="step active">
                             <h2>Personal Info</h2>
-                            <div class="form-floating mt-3">
-                                <select class="form-select" id="title" name="title" aria-label="Default select example">
-                                    <option @if($contact->title === "Mr") selected @endif value="Mr">Mr</option>
-                                    <option @if($contact->title === "Mrs") selected @endif value="Mrs">Mrs</option>
-                                    <option @if($contact->title === "Ms") selected @endif value="Ms">Ms</option>
-                                    <option @if($contact->title === "Master") selected @endif value="Master">Master</option>
-                                    <option @if($contact->title === "Dr") selected @endif value="Dr">Dr</option>
-                                    <option @if($contact->title === "Prof") selected @endif value="Prof">Professor</option>
-                                    <option @if($contact->title === "Sir") selected @endif value="Sir">Sir</option>
-                                </select>
-                                <label for="title" class="form-label">Title</label>
-                            </div>
-                            <div class="form-floating mt-3">
-                                <input type="text" class="form-control" id="first_name" name="first_name" value="{{ old('first_name', $contact->first_name) }}">
-                                <label for="first_name" class="form-label">First Name </label>
-                            </div>
-                            <div class="form-floating mt-3">
-                                <input type="text" class="form-control" id="last_name" name="last_name" value="{{ old('last_name', $contact->last_name) }}">
-                                <label for="last_name" class="form-label">Last Name</label>
-                            </div>
-                            <div class="form-floating mt-3">
-                                <input type="date" class="form-control" name="date_of_birth" id="date_of_birth">
-                                <label for="date_of_birth" class="form-label">Date</label>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="title" class="form-label"> Title </x-form.form-label>
+                                <x-form.form-select type="text" id="title" class="form-select" name="title"    :value="old('title', $contact->title)">
+                                    </x-form.form-input>
                             </div>
                             <div class="form-check mt-3">
-                                <input class="form-check-input" type="checkbox" value="1" id="is_favourite" name="is_favourite" value="{{ old('is_favourite') }}" @checked($contact->is_favourite)>
-                                <label class="form-check-label" for="is_favourite">
-                                    Is Favourite
-                                </label>
+                                <x-form.form-label for="first_name" class="form-label"> First Name </x-form.form-label>
+                                <x-form.form-input type="text" id="first_name" class="form-control" name="first_name" value="{{ old('first_name',$contact->first_name) }}"></x-form.form-input>
                             </div>
-                            <div class="mb-3">
-                                <label for="notes" class="form-label">Notes</label>
-                                <textarea class="form-control" name="notes" id="notes" name="notes" rows="3">{{ old('notes', $contact->notes) }}</textarea>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="last_name" class="form-label"> Last Name </x-form.form-label>
+                                <x-form.form-input type="text" id="last_name" class="form-control" name="last_name" value="{{ old('last_name',$contact->last_name) }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="date_of_birth" class="form-label"> Date Of Birth </x-form.form-label>
+                                <x-form.form-input type="date" id="date_of_birth" class="form-control" name="date_of_birth" value="{{ old('date_of_birth',$contact->date_of_birth) }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="is_favourite" class="form-label">Is Favourite</x-form.form-label>
+                                <x-form.form-checkbox type="checkbox" id="is_favourite" class="form-check-input" value="1" name="is_favourite" value="{{ old('is_favourite',$contact->is_favourite) }}"></x-form.form-checkbox>
+                            </div>
+
+                            <div class="form-check my-3">
+                                <x-form.form-label for="notes" class="form-label"> Notes </x-form.form-label>
+                                <x-form.form-textarea type="text" id="notes" class="form-control" name="notes" rows="3">{{ old('notes',$contact->notes) }}</x-form.form-input>
                             </div>
                         </div>
                         {{-- Address --}}
