@@ -16,7 +16,7 @@
             </h1>
 
             <p class="text-muted mb-0">
-                Welcome back, Admin.
+                <p>Welcome, {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</p>
             </p>
         </div>
 
@@ -109,8 +109,8 @@
 
                     <h2 class="h3 mb-0">
                         @foreach($dashboardData['birthdaysUpcoming'] as $key => $value)
-                                <h4>{{  $value['first_name']." " .$value['last_name']}} - {{ \Carbon\Carbon::parse($value->date_of_birth)->format('d M') }}</h4>
-                        @endforeach 
+                        <h4>{{ $value['first_name']." " .$value['last_name']}} - {{ \Carbon\Carbon::parse($value->date_of_birth)->format('d M') }}</h4>
+                        @endforeach
                     </h2>
 
 
@@ -126,14 +126,14 @@
                 <div class="card-body">
 
                     <p class="text-muted mb-2">
-                      Recently Added
+                        Recently Added
                     </p>
 
                     <h2 class="h3 mb-0">
                         @foreach($dashboardData['RecentlyAdded'] as $key => $value)
-                                <h4>{{  $value['first_name']." " .$value['last_name']}} was added on {{ \Carbon\Carbon::parse($value->created_at)->format('d M') }}</h4>
-                        @endforeach 
-            
+                        <h4>{{ $value['first_name']." " .$value['last_name']}} was added on {{ \Carbon\Carbon::parse($value->created_at)->format('d M') }}</h4>
+                        @endforeach
+
                     </h2>
 
 
@@ -143,7 +143,7 @@
         </div>
 
 
-    
+
 
 
 
@@ -286,35 +286,35 @@
     </div>
 
     <div class="container">
-    <div class="row justify-content-center g-4">
-        <div class="col-xs-12 col-md-10 ">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+        <div class="row justify-content-center g-4">
+            <div class="col-xs-12 col-md-10 ">
+                <div class="card">
+                    <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
+                    <div class="card-body">
 
-                    <h1>{{ $dashboardData['chartContactsByMonthCart']->options['chart_title'] }}</h1>
-                    {!! $dashboardData['chartContactsByMonthCart']->renderHtml() !!}
+                        <h1>{{ $dashboardData['chartContactsByMonthCart']->options['chart_title'] }}</h1>
+                        {!! $dashboardData['chartContactsByMonthCart']->renderHtml() !!}
+
+                    </div>
 
                 </div>
-
             </div>
-        </div>
-          <div class="col-xs-12 col-md-10 ">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+            <div class="col-xs-12 col-md-10 ">
+                <div class="card">
+                    <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
+                    <div class="card-body">
 
-                    <h1>{{ $dashboardData['chartContactsByCountyChart']->options['chart_title'] }}</h1>
-                    {!! $dashboardData['chartContactsByCountyChart']->renderHtml() !!}
+                        <h1>{{ $dashboardData['chartContactsByCountyChart']->options['chart_title'] }}</h1>
+                        {!! $dashboardData['chartContactsByCountyChart']->renderHtml() !!}
+
+                    </div>
 
                 </div>
-
             </div>
         </div>
     </div>
-</div>
 
 </div>
 @endsection
