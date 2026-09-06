@@ -62,8 +62,7 @@
                                 <label for="date_of_birth" class="form-label">Date</label>
                             </div>
                             <div class="form-check mt-3">
-                                <input class="form-check-input" type="checkbox" value="1" id="is_favourite" name="is_favourite" value="{{ old('is_favourite') }}"
-                                   @checked($contact->is_favourite)>
+                                <input class="form-check-input" type="checkbox" value="1" id="is_favourite" name="is_favourite" value="{{ old('is_favourite') }}" @checked($contact->is_favourite)>
                                 <label class="form-check-label" for="is_favourite">
                                     Is Favourite
                                 </label>
@@ -73,6 +72,35 @@
                                 <textarea class="form-control" name="notes" id="notes" name="notes" rows="3">{{ old('notes', $contact->notes) }}</textarea>
                             </div>
                         </div>
+                        {{-- Address --}}
+                        <div class="step">
+                            <h2>Address</h2>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="address_line_1" class="form-label"> Address Line 1 </x-form.form-label>
+                                <x-form.form-input type="text" id="address_line_1" class="form-control" name="address_line_1" value="{{ old('address_line_1',$contact->address_line_1) }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="address_line_2" class="form-label"> Address Line 2 </x-form.form-label>
+                                <x-form.form-input type="text" id="address_line_2" class="form-control" name="address_line_2" value="{{ old('address_line_2',$contact->address_line_2) }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="town_city" class="form-label"> Town/City </x-form.form-label>
+                                <x-form.form-input type="text" id="town_city" class="form-control" name="town_city" value="{{ old('town_city',$contact->town_city) }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="county" class="form-label"> County/Region </x-form.form-label>
+                                <x-form.form-input type="text" id="county" class="form-control" name="county" value="{{ old('county',$contact->county) }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="country" class="form-label"> Country </x-form.form-label>
+                                <x-form.form-input type="text" id="country" class="form-control" name="country" value="{{ old('country',$contact->country) }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check my-3">
+                                <x-form.form-label for="post_code" class="form-label"> Post Code </x-form.form-label>
+                                <x-form.form-input type="text" id="post_code" class="form-control" name="post_code" value="{{ old('post_code',$contact->post_code) }}"></x-form.form-input>
+                            </div>
+                        </div>
+                        {{-- Contact Details --}}
                         <div class="step">
                             <h2>Contact Details</h2>
                             <div class="form-floating mb-3">
@@ -86,33 +114,7 @@
 
 
                         </div>
-                        <div class="step">
-                            <h2>Address</h2>
-                            <div class="form-floating mt-3">
-                                <input type="address_line_1" class="form-control" id="address_line_1" name="address_line_1" value="{{ old('address_line_1', $contact->address_line_1) }}">
-                                <label for="address_line_1">Address Line 1</label>
-                            </div>
-                            <div class="form-floating mt-3">
-                                <input type="address_line_2" class="form-control" id="address_line_2" name="address_line_2" value="{{ old('address_line_2', $contact->address_line_2) }}">
-                                <label for="address_line_2">Address Line 2</label>
-                            </div>
-                            <div class="form-floating mt-3">
-                                <input type="town_city" class="form-control" id="town_city" name="address_line_1" value="{{ old('town_city', $contact->town_city) }}">
-                                <label for="town_city">Town/City</label>
-                            </div>
-                            <div class="form-floating mt-3">
-                                <input type="town_city" class="form-control" id="county" name="county" value="{{ old('county', $contact->county) }}">
-                                <label for="town_city">County</label>
-                            </div>
-                            <div class="form-floating mt-3">
-                                <input type="post_code" class="form-control" id="post_code" name="post_code" value="{{ old('post_code', $contact->post_code) }}">
-                                <label for="post_code">Post Code</label>
-                            </div>
-                            <div class="form-floating mt-3">
-                                <input type="country" class="form-control" id="country" value="{{ old('country', $contact->country) }}">
-                                <label for="country">Country</label>
-                            </div>
-                        </div>
+
                         <div class="step">
                             <h2>Social Media Handle </h2>
                             <div class="form-floating mb-3">
