@@ -19,6 +19,7 @@ class Contact extends Model
     'is_favourite' => 'boolean',
     ];
     protected $fillable = [
+        "title",
         "first_name",
         "last_name",
         "email",
