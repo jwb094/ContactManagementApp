@@ -10,8 +10,6 @@ class ContactsService
 
     public function Index(object $inputData): array
     {
-
-
         $query =  Contact::query();
 
         if (!empty($inputData['first_name'])) {
@@ -40,8 +38,11 @@ class ContactsService
         if (!empty($inputData['twitter'])) {
             $query->whereNotNull('twitter');
         }
+        if (!empty($inputData['instagram'])) {
+            $query->whereNotNull('instagram');
+        }
 
-        if (!empty($inputData['favourite'])) {
+        if (!empty($inputData['is_favourite'])) {
             $query->where('is_favourite', 1);
         }
 
@@ -60,24 +61,23 @@ class ContactsService
     }
 
 
-    public function createContact(array $newUserData): Contact{
+    public function createContact(array $newUserData): Contact
+    {
 
-    $newUserData['is_favourite'] = $newUserData['is_favourite'] ?? 0;
+        $newUserData['is_favourite'] = $newUserData['is_favourite'] ?? 0;
 
         $user = Contact::create($newUserData);
- 
+
         return $user;
     }
 
-    public function updateContact(array $updatedUserData,int $updatedUserDataId): Contact{
-        
+    public function updateContact(array $updatedUserData, int $updatedUserDataId): Contact
+    {
+
         $contact = Contact::findOrFail($updatedUserDataId);
 
         $contact->update($updatedUserData);
-        
+
         return $contact->refresh();
-
-        
     }
-
 }
