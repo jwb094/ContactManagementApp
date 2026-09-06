@@ -39,125 +39,119 @@
                             <h2>Personal Info</h2>
                             <div class="form-check mt-3">
                                 <x-form.form-label for="title" class="form-label"> Title </x-form.form-label>
-                                 <x-form.form-select type="text" id="title" class="form-select" name="title" value="{{ old('title') }}"></x-form.form-input>
+                                <x-form.form-select type="text" id="title" class="form-select" name="title" value="{{ old('title') }}">
+                                    </x-form.form-input>
                             </div>
-                            {{-- <div class="form-floating mt-3">
-                                <select class="form-select" id="title" aria-label="Default select example">
-                                    <option value="Mr">Mr</option>
-                                    <option value="Mrs">Mrs</option>
-                                    <option value="Ms">Ms</option>
-                                    <option value="Master">Master</option>
-                                    <option value="Dr">Dr</option>
-                                    <option value="Prof">Professor</option>
-                                    <option value="Sir">Sir</option>
-                                </select>
-                                <label for="title" class="form-label">Title</label>
-                            </div> --}}
-                            {{-- <div class="form-floating mt-3">
-                                <input type="text" class="form-control" id="first_name" name="first_name" value="{{ old('first_name') }}">
-                            <label for="first_name" class="form-label">First Name </label>
-                        </div> --}}
-                        <div class="form-check mt-3">
-                            <x-form.form-label for="first_name" class="form-label"> First Name </x-form.form-label>
-                            <x-form.form-input type="text" id="first_name" class="form-control" name="first_name" value="{{ old('first_name') }}"></x-form.form-input>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="first_name" class="form-label"> First Name </x-form.form-label>
+                                <x-form.form-input type="text" id="first_name" class="form-control" name="first_name" value="{{ old('first_name') }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="last_name" class="form-label"> Last Name </x-form.form-label>
+                                <x-form.form-input type="text" id="last_name" class="form-control" name="last_name" value="{{ old('last_name') }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="date_of_birth" class="form-label"> Date Of Birth </x-form.form-label>
+                                <x-form.form-input type="date" id="date_of_birth" class="form-control" name="date_of_birth" value="{{ old('date_of_birth') }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="is_favourite" class="form-label">Is Favourite</x-form.form-label>
+                                <x-form.form-checkbox type="checkbox" id="is_favourite" class="form-check-input" value="1" name="is_favourite" value="{{ old('is_favourite') }}"></x-form.form-checkbox>
+                            </div>
+
+                            <div class="form-check my-3">
+                                <x-form.form-label for="notes" class="form-label"> Notes </x-form.form-label>
+                                <x-form.form-textarea type="text" id="notes" class="form-control" name="notes" rows="3">{{ old('last_name') }}</x-form.form-input>
+                            </div>
                         </div>
+                        <div class="step">
+                            <h2>Address</h2>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="address_line_1" class="form-label"> Address Line 1 </x-form.form-label>
+                                <x-form.form-input type="text" id="address_line_1" class="form-control" name="address_line_1" value="{{ old('address_line_1') }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="address_line_2" class="form-label"> Address Line 2 </x-form.form-label>
+                                <x-form.form-input type="text" id="address_line_2" class="form-control" name="address_line_2" value="{{ old('address_line_2') }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="town_city" class="form-label"> Town/City </x-form.form-label>
+                                <x-form.form-input type="text" id="town_city" class="form-control" name="town_city" value="{{ old('town_city') }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="county" class="form-label"> County/Region </x-form.form-label>
+                                <x-form.form-input type="text" id="county" class="form-control" name="county" value="{{ old('county') }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="country" class="form-label"> Country </x-form.form-label>
+                                <x-form.form-input type="text" id="country" class="form-control" name="country" value="{{ old('country') }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="post_code" class="form-label"> Post Code </x-form.form-label>
+                                <x-form.form-input type="text" id="post_code" class="form-control" name="post_code" value="{{ old('post_code') }}"></x-form.form-input>
+                            </div>
+
+                            {{-- <div class="form-floating mt-3">
+                                <input type="address_line_1" class="form-control" name="address_line_1" id="address_line_1" value="{{ old('address_line_1') }}">
+                            <label for="address_line_1">Address Line 1</label>
+                        </div> --}}
                         {{-- <div class="form-floating mt-3">
-                                <input type="text" class="form-control" id="last_name" name="last_name" value="{{ old('last_name') }}">
-                        <label for="last_name" class="form-label">Last Name</label>
+                                <input type="address_line_2" class="form-control" id="address_line_2" value="{{ old('address_line_2') }}">
+                        <label for="address_line_2">Address Line 2</label>
                     </div> --}}
-                    <div class="form-check mt-3">
-                        <x-form.form-label for="last_name" class="form-label"> Last Name </x-form.form-label>
-                        <x-form.form-input type="text" id="last_name" class="form-control" name="last_name" value="{{ old('last_name') }}"></x-form.form-input>
-                    </div>
                     {{-- <div class="form-floating mt-3">
-                        <input type="date" class="form-control" name="date_of_birth" id="date_of_birth">
-                        <label for="date_of_birth" class="form-label">Date</label>
-                    </div> --}}
-                    <div class="form-check mt-3">
-                        <x-form.form-label for="date_of_birth" class="form-label"> Date Of Birth </x-form.form-label>
-                        <x-form.form-input type="date" id="date_of_birth" class="form-control" name="date_of_birth" value="{{ old('date_of_birth') }}"></x-form.form-input>
-                    </div>
-                    {{-- <div class="form-check mt-3">
-                        <input class="form-check-input" type="checkbox" value="1" id="is_favourite" name="is_favourite" value="{{ old('is_favourite') }}">
-                    <label class="form-check-label" for="is_favourite">
-                        Is Favourite
-                    </label>
+                        <input type="town_city" class="form-control" id="town_city" value="{{ old('town_city') }}">
+                    <label for="town_city">Town/City</label>
         </div> --}}
-        <div class="form-check mt-3">
-            <x-form.form-label for="is_favourite" class="form-label">Is Favourite</x-form.form-label>
-            <x-form.form-checkbox type="checkbox" id="is_favourite" class="form-check-input" value="1" name="is_favourite" value="{{ old('is_favourite') }}"></x-form.form-checkbox>
-        </div>
-        {{-- <div class="mb-3">
-                                <label for="notes" class="form-label">Notes</label>
-                                <textarea class="form-control" name="notes" id="notes" rows="3"></textarea>
-                            </div> --}}
-        <div class="form-check my-3">
-            <x-form.form-label for="notes" class="form-label"> Notes </x-form.form-label>
-            <x-form.form-textarea type="text" id="notes" class="form-control" name="notes" rows="3">{{ old('last_name') }}</x-form.form-input>
-        </div>
+        {{-- <div class="form-floating mt-3">
+                        <input type="town_city" class="form-control" id="county" value="{{ old('county') }}">
+        <label for="town_city">County</label>
+    </div> --}}
+    {{-- <div class="form-floating mt-3">
+                        <input type="country" class="form-control" id="country" value="{{ old('country') }}">
+    <label for="country">Country</label>
+</div> --}}
+{{-- <div class="form-floating mt-3">
+    <input type="post_code" class="form-control" id="post_code" name="post_code" value="{{ old('post_code') }}">
+<label for="post_code">Post Code</label>
+</div> --}}
+</div>
+<div class="step">
+    <h2>Contact Details</h2>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}">
+        <label for="email" class="form-label">Email </label>
     </div>
-    <div class="step">
-        <h2>Contact Details</h2>
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}">
-            <label for="email" class="form-label">Email </label>
-        </div>
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="phone" name="mobile" value="{{ old('phone') }}">
-            <label for="phone" class="form-label">Mobile </label>
-        </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="phone" name="mobile" value="{{ old('phone') }}">
+        <label for="phone" class="form-label">Mobile </label>
     </div>
-    <div class="step">
-        <h2>Address</h2>
-        <div class="form-floating mt-3">
-            <input type="address_line_1" class="form-control" name="address_line_1" id="address_line_1" value="{{ old('address_line_1') }}">
-            <label for="address_line_1">Address Line 1</label>
-        </div>
-        <div class="form-floating mt-3">
-            <input type="address_line_2" class="form-control" id="address_line_2" value="{{ old('address_line_2') }}">
-            <label for="address_line_2">Address Line 2</label>
-        </div>
-        <div class="form-floating mt-3">
-            <input type="town_city" class="form-control" id="town_city" value="{{ old('town_city') }}">
-            <label for="town_city">Town/City</label>
-        </div>
-        <div class="form-floating mt-3">
-            <input type="town_city" class="form-control" id="county" value="{{ old('county') }}">
-            <label for="town_city">County</label>
-        </div>
-        <div class="form-floating mt-3">
-            <input type="country" class="form-control" id="country" value="{{ old('country') }}">
-            <label for="country">Country</label>
-        </div>
-        <div class="form-floating mt-3">
-            <input type="post_code" class="form-control" id="post_code" name="post_code" value="{{ old('post_code') }}">
-            <label for="post_code">Post Code</label>
-        </div>
+</div>
+
+<div class="step">
+    <h2>Social Media Handle </h2>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="facebook" name="facebook" value="{{ old('facebook') }}">
+        <label for="facebook" class="form-label">Facebook </label>
     </div>
-    <div class="step">
-        <h2>Social Media Handle </h2>
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="facebook" name="facebook" value="{{ old('facebook') }}">
-            <label for="facebook" class="form-label">Facebook </label>
-        </div>
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="twitter" name="twitter" value="{{ old('twitter') }}">
-            <label for="twitter" class="form-label">X(formerly known as Twitter)</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="instagram" name="instagram" value="{{ old('instagram') }}">
-            <label for="instagram" class="form-label">Instagram</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="linkedin" name="linkedin" value="{{ old('linkedin') }}">
-            <label for="linkedin" class="form-label">LinkedIn</label>
-        </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="twitter" name="twitter" value="{{ old('twitter') }}">
+        <label for="twitter" class="form-label">X(formerly known as Twitter)</label>
     </div>
-    <div class="buttons">
-        <button type="button" class="btn btn-info" id="previousBtn" onclick="prevStep()">Previous</button>
-        <button type="button" class="btn btn-success" id="nextBtn" onclick="nextStep()">Next</button>
-        <button class="btn btn-dark" type="submit" id="submitBtn" style="display: none;">submit</button>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="instagram" name="instagram" value="{{ old('instagram') }}">
+        <label for="instagram" class="form-label">Instagram</label>
     </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="linkedin" name="linkedin" value="{{ old('linkedin') }}">
+        <label for="linkedin" class="form-label">LinkedIn</label>
+    </div>
+</div>
+<div class="buttons">
+    <button type="button" class="btn btn-info" id="previousBtn" onclick="prevStep()">Previous</button>
+    <button type="button" class="btn btn-success" id="nextBtn" onclick="nextStep()">Next</button>
+    <button class="btn btn-dark" type="submit" id="submitBtn" style="display: none;">submit</button>
+</div>
 </div>
 </form>
 </section>
