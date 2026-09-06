@@ -47,24 +47,19 @@
                 </li>
 
                 <li>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href={{ route('admin.profile') }}>
                         👤 My Profile
                     </a>
                 </li>
-
-                <li>
-                    <a class="dropdown-item" href="#">
-                        ⚙ Settings
-                    </a>
-                </li>
+ 
 
                 <li>
                     <hr class="dropdown-divider">
                 </li>
 
                 <li>
-                    <a class="dropdown-item text-danger" href="#">
-                        🚪 Logout
+                    <a class="dropdown-item text-danger" href={{ route('admin.logout') }}>
+                        <i class="bi bi-door-closed-fill"></i> Logout
                     </a>
                 </li>
 
