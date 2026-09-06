@@ -32,6 +32,7 @@ class CreateContactRequest extends FormRequest
         'address_line_2' => 'nullable|string|max:255',
         'town_city' => 'nullable|string|max:100',
         'county' => 'nullable|string|max:100',
+        'notes' => 'nullable|string|max:100',
         'post_code' => 'required|string|max:20',
         'is_favourite' => 'nullable|boolean',
         'facebook' => 'nullable|string|max:255',
