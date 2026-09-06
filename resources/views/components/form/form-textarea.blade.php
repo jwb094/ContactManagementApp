@@ -1,3 +1,2 @@
-<div>
-    <!-- An unexamined life is not worth living. - Socrates -->
-</div>
+<textarea  {{ $attributes->merge(['class' => '','name'=> '','id' => '', 'rows'=>'']) }}></textarea>
+
