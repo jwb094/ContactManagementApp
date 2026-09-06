@@ -104,23 +104,24 @@
                                 <x-form.form-input type="text" id="phone" class="form-control" name="phone" value="{{ old('phone', $contact->phone) }}"></x-form.form-input>
                             </div>
                         </div>
+                        {{-- Social Media Details --}}
                         <div class="step">
                             <h2>Social Media Handle </h2>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="facebook" name="facebook" value="{{ old('facebook', $contact->facebook) }}">
-                                <label for="facebook" class="form-label">Facebook </label>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="facebook" class="form-label"> Facebook </x-form.form-label>
+                                <x-form.form-input type="text" id="facebook" class="form-control" name="facebook" value="{{ old('facebook',$contact->facebook) }}"></x-form.form-input>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="twitter" name="twitter" value="{{ old('twitter', $contact->twitter) }}">
-                                <label for="twitter" class="form-label">X(formerly known as Twitter)</label>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="twitter" class="form-label"> X(formerly known as Twitter) </x-form.form-label>
+                                <x-form.form-input type="text" id="twitter" class="form-control" name="twitter" value="{{ old('twitter',$contact->twitter) }}"></x-form.form-input>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="instagram" name="instagram" value="{{ old('instagram', $contact->instagram) }}">
-                                <label for="instagram" class="form-label">Instagram</label>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="instagram" class="form-label"> Instagram </x-form.form-label>
+                                <x-form.form-input type="text" id="instagram" class="form-control" name="instagram" value="{{ old('instagram',$contact->instagram) }}"></x-form.form-input>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="linkedin" id="linkedin" value="{{ old('linkedin', $contact->linkedin) }}">
-                                <label for="linkedin" class="form-label">LinkedIn</label>
+                            <div class="form-check my-3">
+                                <x-form.form-label for="linkedin" class="form-label"> Linkedin </x-form.form-label>
+                                <x-form.form-input type="text" id="linkedin" class="form-control" name="linkedin" value="{{ old('linkedin',$contact->linkedin) }}"></x-form.form-input>
                             </div>
                         </div>
                         <div class="buttons mt-5">
