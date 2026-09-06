@@ -1,3 +1,3 @@
-<input  {{ $attributes->merge(['type' =>'','class' => '','name'=> '','placeholder' => ""]) }}>
+<input  {{ $attributes->merge(['type' =>'','class' => '','name'=> '','placeholder' => '', 'value'=>'']) }}>
     {{$slot}}
 </input>
