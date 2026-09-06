@@ -26,9 +26,7 @@
      @endif 
 </head>
 
-<body class="{{ request()->is(['/', 'register'])  ? 'd-flex flex-column align-items-center justify-content-center vh-100 bg-body-tertiary' : 'd-flex flex-column w-100 vh-100 bg-body-tertiary' }}">
-    {{-- @include('include.header') --}}
-    @include('include.admin_panel_mobile')
+<body class="d-flex flex-column align-items-center justify-content-center vh-100 bg-body-tertiary">
     <main class="container-fluid ">
         @yield('content')
     </main>
