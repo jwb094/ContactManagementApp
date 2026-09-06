@@ -22,17 +22,17 @@
 
                     <div class="row">
                         <div class="col-xs-12 col-md-2 mb-3">
-                            <input type="text" class="form-control" name="name" id="" placeholder="Tag name">
+                            <x-form.form-input type="text" id="tagname" class="form-control" name="name" placeholder="Friends"></x-form.form-input>
                         </div>
                         <div class="col-12 col-md-3 mb-3 | form-check">
                             <button type="submit" class="btn btn-primary mt-6 | text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5">
                                 Search
                             </button>
-                         
+
                         </div>
-                           <div class="col-12 col-md-3 mb-3 | form-check">
-                                <a class="btn btn-secondary" href={{ route('admin.tags.index') }}> Reset</a>
-                            </div>
+                        <div class="col-12 col-md-3 mb-3 | form-check">
+                            <a class="btn btn-secondary" href={{ route('admin.tags.index') }}> Reset</a>
+                        </div>
                     </div>
 
                 </form>
