@@ -62,6 +62,8 @@ class ContactsService
 
     public function createContact(array $newUserData): Contact{
 
+    $newUserData['is_favourite'] = $newUserData['is_favourite'] ?? 0;
+
         $user = Contact::create($newUserData);
  
         return $user;
