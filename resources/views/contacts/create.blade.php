@@ -86,78 +86,53 @@
                                 <x-form.form-label for="country" class="form-label"> Country </x-form.form-label>
                                 <x-form.form-input type="text" id="country" class="form-control" name="country" value="{{ old('country') }}"></x-form.form-input>
                             </div>
-                            <div class="form-check mt-3">
+                            <div class="form-check my-3">
                                 <x-form.form-label for="post_code" class="form-label"> Post Code </x-form.form-label>
                                 <x-form.form-input type="text" id="post_code" class="form-control" name="post_code" value="{{ old('post_code') }}"></x-form.form-input>
                             </div>
+                        </div>
+                        <div class="step">
+                            <h2>Contact Details</h2>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="email" class="form-label"> Email </x-form.form-label>
+                                <x-form.form-input type="text" id="email" class="form-control" name="email" value="{{ old('email') }}"></x-form.form-input>
+                            </div>
+                            <div class="form-check my-3">
+                                <x-form.form-label for="phone" class="form-label">Phone </x-form.form-label>
+                                <x-form.form-input type="text" id="phone" class="form-control" name="phone" value="{{ old('phone') }}"></x-form.form-input>
+                            </div>
+                        </div>
 
-                            {{-- <div class="form-floating mt-3">
-                                <input type="address_line_1" class="form-control" name="address_line_1" id="address_line_1" value="{{ old('address_line_1') }}">
-                            <label for="address_line_1">Address Line 1</label>
-                        </div> --}}
-                        {{-- <div class="form-floating mt-3">
-                                <input type="address_line_2" class="form-control" id="address_line_2" value="{{ old('address_line_2') }}">
-                        <label for="address_line_2">Address Line 2</label>
-                    </div> --}}
-                    {{-- <div class="form-floating mt-3">
-                        <input type="town_city" class="form-control" id="town_city" value="{{ old('town_city') }}">
-                    <label for="town_city">Town/City</label>
-        </div> --}}
-        {{-- <div class="form-floating mt-3">
-                        <input type="town_city" class="form-control" id="county" value="{{ old('county') }}">
-        <label for="town_city">County</label>
-    </div> --}}
-    {{-- <div class="form-floating mt-3">
-                        <input type="country" class="form-control" id="country" value="{{ old('country') }}">
-    <label for="country">Country</label>
-</div> --}}
-{{-- <div class="form-floating mt-3">
-    <input type="post_code" class="form-control" id="post_code" name="post_code" value="{{ old('post_code') }}">
-<label for="post_code">Post Code</label>
-</div> --}}
-</div>
-<div class="step">
-    <h2>Contact Details</h2>
-    <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}">
-        <label for="email" class="form-label">Email </label>
-    </div>
-    <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="phone" name="mobile" value="{{ old('phone') }}">
-        <label for="phone" class="form-label">Mobile </label>
-    </div>
-</div>
+                        <div class="step">
+                            <h2>Social Media Handle </h2>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="facebook" name="facebook" value="{{ old('facebook') }}">
+                                <label for="facebook" class="form-label">Facebook </label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="twitter" name="twitter" value="{{ old('twitter') }}">
+                                <label for="twitter" class="form-label">X(formerly known as Twitter)</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="instagram" name="instagram" value="{{ old('instagram') }}">
+                                <label for="instagram" class="form-label">Instagram</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="linkedin" name="linkedin" value="{{ old('linkedin') }}">
+                                <label for="linkedin" class="form-label">LinkedIn</label>
+                            </div>
+                        </div>
+                        <div class="buttons">
+                            <button type="button" class="btn btn-info" id="previousBtn" onclick="prevStep()">Previous</button>
+                            <button type="button" class="btn btn-success" id="nextBtn" onclick="nextStep()">Next</button>
+                            <button class="btn btn-dark" type="submit" id="submitBtn" style="display: none;">submit</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
 
-<div class="step">
-    <h2>Social Media Handle </h2>
-    <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="facebook" name="facebook" value="{{ old('facebook') }}">
-        <label for="facebook" class="form-label">Facebook </label>
     </div>
-    <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="twitter" name="twitter" value="{{ old('twitter') }}">
-        <label for="twitter" class="form-label">X(formerly known as Twitter)</label>
-    </div>
-    <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="instagram" name="instagram" value="{{ old('instagram') }}">
-        <label for="instagram" class="form-label">Instagram</label>
-    </div>
-    <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="linkedin" name="linkedin" value="{{ old('linkedin') }}">
-        <label for="linkedin" class="form-label">LinkedIn</label>
-    </div>
-</div>
-<div class="buttons">
-    <button type="button" class="btn btn-info" id="previousBtn" onclick="prevStep()">Previous</button>
-    <button type="button" class="btn btn-success" id="nextBtn" onclick="nextStep()">Next</button>
-    <button class="btn btn-dark" type="submit" id="submitBtn" style="display: none;">submit</button>
-</div>
-</div>
-</form>
-</section>
-</div>
-
-</div>
 </div>
 @push('scripts')
 <script src="{{ URL::asset('js/multi-step-form.js') }}"></script>
