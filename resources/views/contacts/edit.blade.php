@@ -39,7 +39,7 @@
                             <h2>Personal Info</h2>
                             <div class="form-check mt-3">
                                 <x-form.form-label for="title" class="form-label"> Title </x-form.form-label>
-                                <x-form.form-select type="text" id="title" class="form-select" name="title"    :value="old('title', $contact->title)">
+                                <x-form.form-select type="text" id="title" class="form-select" name="title" :value="old('title', $contact->title)">
                                     </x-form.form-input>
                             </div>
                             <div class="form-check mt-3">
@@ -95,18 +95,15 @@
                         {{-- Contact Details --}}
                         <div class="step">
                             <h2>Contact Details</h2>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="email" name="email" value="{{ old('email', $contact->email) }}">
-                                <label for="email" class="form-label">Email </label>
+                            <div class="form-check mt-3">
+                                <x-form.form-label for="email" class="form-label"> Email </x-form.form-label>
+                                <x-form.form-input type="text" id="email" class="form-control" name="email" value="{{ old('email', $contact->email) }}"></x-form.form-input>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone', $contact->phone) }}">
-                                <label for="phone" class="form-label">Mobile </label>
+                            <div class="form-check my-3">
+                                <x-form.form-label for="phone" class="form-label">Mobile </x-form.form-label>
+                                <x-form.form-input type="text" id="phone" class="form-control" name="phone" value="{{ old('phone', $contact->phone) }}"></x-form.form-input>
                             </div>
-
-
                         </div>
-
                         <div class="step">
                             <h2>Social Media Handle </h2>
                             <div class="form-floating mb-3">
