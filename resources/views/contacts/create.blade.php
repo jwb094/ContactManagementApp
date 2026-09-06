@@ -61,7 +61,7 @@
 
                             <div class="form-check my-3">
                                 <x-form.form-label for="notes" class="form-label"> Notes </x-form.form-label>
-                                <x-form.form-textarea type="text" id="notes" class="form-control" name="notes" rows="3">{{ old('last_name') }}</x-form.form-input>
+                                <x-form.form-textarea type="text" id="notes" class="form-control" name="notes" rows="3">{{ old('notes') }}</x-form.form-input>
                             </div>
                         </div>
                         <div class="step">
